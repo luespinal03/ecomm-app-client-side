@@ -1,0 +1,39 @@
+.reg-email {
+  border: 1px solid black;
+  margin: 1%;
+  border-radius: 5px;
+  padding: 3px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+.reg-password {
+  border: 1px solid black;
+  margin: 1%;
+  border-radius: 5px;
+  padding: 3px;
+  text-align: center;
+}
+label {
+  font-size: 40px;
+}
+
+.reg-button {
+  border-radius: 5px;
+  font-size: 30px;
+  padding: 5px 10px 5px 10px;
+  color: black;
+  background-color: rgb(255, 255, 255, 0.75);
+  border: 1px solid rgb(255, 255, 255, 0.75);
+  height: 40px;
+  width: 130px;
+}
+
+.reg-button:hover {
+  color: black;
+  background-color: rgb(255, 255, 255, 0.75);
+  border: 1px solid black;
+}

@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  /* linear-gradient requires two parameters(two different colors) because it gradually goes from one color to the other. */
+  background: linear-gradient(to right, #00aaff, #7b17c3);
+}
+
+.App-link {
+  color: #61dafb;
+}
