@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../Hooks/Auth';
+import './HomePage.css'
+import Footer from '../Components/Footer';
+import Recommended from '../Components/Recommended'
 
 const urlEndPoint = process.env.REACT_APP_URL_ENDPOINT;
 
@@ -34,20 +37,15 @@ const HomePage = () => {
             <h3>Top Brands</h3>
             <br />
             <img src='https://media.gamestop.com/i/gamestop/Homepage_5_Column_BrandLogo_Xbox_264x150_D.webp' />
-            <br />
-            <br />
-            <br />
-            <img src='https://media.gamestop.com/i/gamestop/Homepage_5_Column_BrandLogo_PlayStation_264x150_D.webp' />
-            <br />
-            <br />
-            <br />
-            <img src='https://media.gamestop.com/i/gamestop/Homepage_5_Column_BrandLogo_Nintendo_264x150_D.webp' />
-            <br />
-            <br />
-            <br />
-            <img src='https://media.gamestop.com/i/gamestop/Homepage_5_Column_BrandLogo_Pokemon_264x150_D.webp' />
 
+            <img src='https://media.gamestop.com/i/gamestop/Homepage_5_Column_BrandLogo_PlayStation_264x150_D.webp' />
+
+            <img src='https://media.gamestop.com/i/gamestop/Homepage_5_Column_BrandLogo_Nintendo_264x150_D.webp' />
+
+            <img src='https://media.gamestop.com/i/gamestop/Homepage_5_Column_BrandLogo_Pokemon_264x150_D.webp' />
             <h3>{message}</h3>
+            {/* <Recommended />
+            <Footer /> */}
         </div>
     )
 }

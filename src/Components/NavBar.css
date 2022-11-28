@@ -62,7 +62,7 @@ button {
   display: flex;
   /* border: 2px dashed greenyellow; */
   align-items: baseline;
-  background: rgb(89, 148, 242);
+  background: linear-gradient(to right, #00aaff, #7b17c3);
   margin-top: 0px;
   margin-bottom: 0px;
   /* min-height: 100vh; */

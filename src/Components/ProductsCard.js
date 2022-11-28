@@ -1,7 +1,10 @@
 import React from 'react'
 import './ProductsCard.css'
 
-const ProductsCard = ({ product }) => {
+
+const ProductsCard = ({ product, itemToShoppingCart }) => {
+
+
     return (
         <div className='products-card' >
             <br />
@@ -9,6 +12,7 @@ const ProductsCard = ({ product }) => {
             <img src={product.image} />
             <p className='product-price'>${product.price}</p>
             <p className='product-features'>{product.features}</p>
+            <button onClick={() => { itemToShoppingCart(product) }}>Add to Cart</button>
         </div>
     )
 }

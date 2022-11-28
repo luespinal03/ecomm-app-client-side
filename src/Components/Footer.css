@@ -1,0 +1,16 @@
+.footer {
+  background-color: white;
+  margin-top: 34%;
+  height: 50px;
+  /* min-height: 150px; */
+  display: flex;
+}
+
+ul {
+  list-style: none;
+  margin-right: 122rem;
+}
+
+h4 {
+  margin-right: 120rem;
+}

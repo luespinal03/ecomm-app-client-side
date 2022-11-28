@@ -6,14 +6,15 @@ import LoginPage from './Pages/LoginPage';
 import RegistrationPage from './Pages/RegistrationPage';
 import './App.css';
 import ProductsPage from './Pages/ProductsPage';
+import ShoppingCart from './Pages/ShoppingCart';
 
 
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT
 
 function App() {
-
+  const [shoppingCart, setShoppingCart] = useState([])
   const [itemsList, setItemsList] = useState([]);
-  // gamesList contains the array of 20 games WHYYYYYYY!!!!!!!!!!
+
   console.log(itemsList)
 
   useEffect(() => {
@@ -24,8 +25,35 @@ function App() {
       setItemsList(fetchedItems.item)
     }
     findProduct()
-    // gamesList is empty here WHYYYYYYY!!!!!!!!!!
+
   }, [])
+
+
+
+
+  // so far got everything added to the shopping cart, havent worked on gettin them displayed just yet.
+  const itemToShoppingCartHandler = (product) => {
+
+    let productTobeAdded = {
+      id: product.id,
+      title: product.title,
+      console: product.console,
+      features: product.features,
+      brand: product.brand,
+      type: product.type,
+      price: product.price,
+      genre: product.genre,
+      ratings: product.ratings,
+      image: product.image
+    }
+    const itemsInCart = [...shoppingCart, productTobeAdded]
+    setShoppingCart(itemsInCart)
+  }
+
+  console.log(shoppingCart)
+
+
+
 
 
   const router = createBrowserRouter([
@@ -48,7 +76,11 @@ function App() {
         },
         {
           path: '/products',
-          element: <ProductsPage itemsList={itemsList} />
+          element: <ProductsPage itemsList={itemsList} itemToShoppingCart={itemToShoppingCartHandler} />
+        },
+        {
+          path: '/shoppingcart',
+          element: <ShoppingCart shoppingCart={shoppingCart} />
         }
       ]
     }
