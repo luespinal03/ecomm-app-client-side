@@ -24,13 +24,13 @@ const RegistrationPage = () => {
 
 
     return (
-        <div>
+        <div className='registration-card'>
             <h1>Welcome !</h1>
             <label type='text'>Email: </label>
-            <input type="text" onChange={(e) => { setEmail(e.target.value) }} className="reg-email"></input>
+            <input type="email" placeholder='john@doe.com' onChange={(e) => { setEmail(e.target.value) }} className="reg-email"></input>
             <br />
-            <label type='password'>Password: </label>
-            <input type="text" onChange={(e) => { setPassword(e.target.value) }} className='reg-password'></input>
+            <label type='text'>Password: </label>
+            <input type="password" placeholder='password' onChange={(e) => { setPassword(e.target.value) }} className='reg-password'></input>
             <br />
             <button onClick={registrationHandler} className='reg-button'>Sign Up</button>
             <h3>{registerMessage}</h3>

@@ -34,6 +34,18 @@ label {
 
 .reg-button:hover {
   color: black;
-  background-color: rgb(255, 255, 255, 0.75);
+  background-color: rgba(25, 128, 176, 0.75);
   border: 1px solid black;
+}
+
+.registration-card {
+  background-color: white;
+  width: 40rem;
+  height: 30rem;
+  margin-left: 50rem;
+}
+
+input {
+  height: 30px;
+  font-size: 25px;
 }

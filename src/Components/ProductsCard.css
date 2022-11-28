@@ -1,0 +1,13 @@
+.products-card {
+  background-color: white;
+  width: 1100px;
+  margin-left: 35rem;
+}
+
+.product-price {
+  font-size: 40px;
+}
+
+.product-features {
+  font-size: 25px;
+}

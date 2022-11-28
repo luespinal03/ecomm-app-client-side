@@ -3,6 +3,22 @@
   width: 10px;
 }
 
+.shopping-cart {
+  margin-left: 90rem;
+  background-color: rgba(0, 0, 0, 0);
+  border: rgba(0, 0, 0, 0);
+  border-radius: 40px;
+  height: 55px;
+  width: 75px;
+}
+
+.shopping-cart:hover {
+  color: black;
+  background-color: rgb(255, 255, 255, 0.75);
+  border: 1px solid black;
+  cursor: pointer;
+}
+
 h3 {
   font-size: 35px;
 }
@@ -27,6 +43,7 @@ h3 {
   color: black;
   background-color: rgb(255, 255, 255, 0.75);
   border: 1px solid black;
+  cursor: pointer;
 }
 
 button {

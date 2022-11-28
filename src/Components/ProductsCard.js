@@ -1,12 +1,14 @@
 import React from 'react'
+import './ProductsCard.css'
 
 const ProductsCard = ({ product }) => {
     return (
-        <div>
+        <div className='products-card' >
+            <br />
             <h2>{product.title}</h2>
             <img src={product.image} />
-            <p>{product.price}</p>
-            <p>{product.features}</p>
+            <p className='product-price'>${product.price}</p>
+            <p className='product-features'>{product.features}</p>
         </div>
     )
 }

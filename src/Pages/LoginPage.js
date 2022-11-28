@@ -21,13 +21,13 @@ const LoginPage = () => {
         }
     }
     return (
-        <div>
+        <div className='login-card'>
             <h1>Welcome back !</h1>
             <label type='text'>Email: </label>
-            <input type="text" onChange={(e) => { setEmail(e.target.value) }} className='login-email'></input>
+            <input type="email" onChange={(e) => { setEmail(e.target.value) }} className='login-email' placeholder='john@doe.com'></input>
             <br />
-            <label type='password'>Password: </label>
-            <input type="text" onChange={(e) => { setPassword(e.target.value) }} className='login-password'></input>
+            <label type='text'>Password: </label>
+            <input type="password" placeholder='password' onChange={(e) => { setPassword(e.target.value) }} className='login-password'></input>
             <br />
             <br />
 
