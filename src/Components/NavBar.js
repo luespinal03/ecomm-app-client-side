@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../Hooks/Auth';
 import { useNavigate } from "react-router-dom";
 import { AiOutlineShoppingCart } from 'react-icons/ai'
-import { RiAccountCircleFill } from 'react-icons/ai'
 import './NavBar.css'
 
 
@@ -30,8 +29,8 @@ const NavBar = () => {
                 <Link to="/registration" className=' nav-bar-item'>Register Here!</Link>
                 <Link to="/login" className='nav-bar-item'>Login Here !</Link>
                 <Link to='/products' className='nav-bar-item'>Products</Link>
-                <button className='shopping-cart' onClick={() => { navigate('/shoppingcart') }}><AiOutlineShoppingCart size={50} />
-                </button>
+                <Link to='/shoppingcart' className='shopping-cart'><AiOutlineShoppingCart size={50} />
+                </Link>
 
             </div>
 

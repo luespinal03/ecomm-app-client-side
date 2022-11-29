@@ -31,7 +31,7 @@ function App() {
 
 
 
-  // so far got everything added to the shopping cart, havent worked on gettin them displayed just yet.
+  // so far got everything added to the shopping cart, havent worked on gettin them displayed just yet. Code below its a function in charge of putting the product that got clicked on in a new object called productTobeAdded which then gets added into ...shoppingCart. The reason why we spread shoppingCart its so we can add to the existing values that are already in there. We created itemsInCart which is w.e its already in the cart plus productTobeAdded. Then we give setShoppingCart the value of itemsInCart
   const itemToShoppingCartHandler = (product) => {
 
     let productTobeAdded = {

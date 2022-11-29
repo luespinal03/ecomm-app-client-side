@@ -10,16 +10,7 @@ const ShoppingCart = ({ shoppingCart }) => {
                 return <ShoppingCartCard key={index} product={product} />
             })}
         </div>
-
     }
-
 }
 
 export default ShoppingCart
-
-
-
-    // < h1 > Products</ >
-    //     <div>{itemsList.map((product, index) => {
-    //         return <ProductsCard key={index} product={product} itemToShoppingCart={itemToShoppingCart} />
-    //     })}</div>
