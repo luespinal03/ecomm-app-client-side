@@ -16,7 +16,7 @@ const ProductsCard = ({ product, itemToShoppingCart }) => {
                     <Card.Img variant="top" src={product.image} className='product-img' />
                     <Card.Text className='product-price'>${product.price}</Card.Text>
                     <Card.Text className='product-features'>{product.features}</Card.Text>
-                    <Button className='add-to-cart-button' variant="primary" onClick={() => { itemToShoppingCart(product) }}>Add to Cart</Button>
+                    <Button className='add-to-cart-button' onClick={() => { itemToShoppingCart(product) }}>Add to Cart</Button>
                 </Card.Body>
                 <br />
             </Card>

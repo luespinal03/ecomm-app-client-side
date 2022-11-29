@@ -3,6 +3,7 @@
   max-height: fit-content;
   max-width: 60rem;
   margin: 40px;
+  overflow: auto;
 }
 
 .product-card-title {
@@ -11,7 +12,7 @@
 button {
   background: #00aaff;
   height: 80px;
-  width: 560px;
+  width: 460px;
 }
 
 button:hover {
@@ -24,6 +25,8 @@ button:hover {
 
 .product-price {
   font-size: 40px;
+  text-decoration: underline;
+  text-decoration-color: red;
 }
 
 .product-features {

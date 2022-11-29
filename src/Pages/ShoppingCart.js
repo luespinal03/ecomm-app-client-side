@@ -1,6 +1,7 @@
 import React from 'react'
 import ShoppingCartCard from '../Components/ShoppingCartCard'
 
+
 const ShoppingCart = ({ shoppingCart }) => {
     if (shoppingCart.length === 0) {
         return (<h3>Your Shopping Cart is Empty</h3>)

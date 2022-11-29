@@ -1,18 +1,23 @@
 import React from 'react'
+import { Card, Button } from 'react-bootstrap'
 import './ShoppingCartCard.css'
 
 const ShoppingCartCard = ({ product }) => {
     return (
-        <div className='item-cart-card'>
-            <img src={product.image} />
-            <p>{product.title}</p>
-            <p className=''>${product.price}</p>
-            <p className=''>${product.features}</p>
-            <select>
-                <option>Qty 1</option>
-                <option>Qty 2</option>
-                <option>Qty 3</option>
-            </select>
+        <div>
+            <Card className='cart-product-container'>
+                <Card.Body className='cart-card-body'>
+                    <Card.Img className='cart-product-img' src={product.image} />
+                    <Card.Title className='product-card-title'>{product.title}</Card.Title>
+                    <Card.Text className='product-price'>${product.price}</Card.Text>
+                    <Card.Text className='product-features'>${product.features}</Card.Text>
+                    <select className='toggle_option'>
+                        <option>Qty 1</option>
+                        <option>Qty 2</option>
+                        <option>Qty 3</option>
+                    </select>
+                </Card.Body>
+            </Card>
         </div>
     )
 }
