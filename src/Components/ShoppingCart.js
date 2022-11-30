@@ -1,6 +1,6 @@
 import React from 'react'
-import ShoppingCartCard from '../Components/ShoppingCartCard'
-import ProceedToOrder from '../Components/ProceedToOrder'
+import ShoppingCartCard from './ShoppingCartCard'
+import OrderSummary from './OrderSummary'
 
 
 const ShoppingCart = ({ shoppingCart }) => {
@@ -11,7 +11,8 @@ const ShoppingCart = ({ shoppingCart }) => {
             {shoppingCart.map((product, index) => {
                 return <ShoppingCartCard key={index} product={product} />
             })}
-            <ProceedToOrder /></div>
+            <OrderSummary />
+        </div>
     }
 }
 

@@ -6,7 +6,8 @@ import LoginPage from './Pages/LoginPage';
 import RegistrationPage from './Pages/RegistrationPage';
 import './App.css';
 import ProductsPage from './Pages/ProductsPage';
-import ShoppingCart from './Pages/ShoppingCart';
+import ShoppingCart from './Components/ShoppingCart';
+import CheckOut from './Components/CheckOut'
 
 
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT
@@ -81,6 +82,10 @@ function App() {
         {
           path: '/shoppingcart',
           element: <ShoppingCart shoppingCart={shoppingCart} />
+        },
+        {
+          path: '/checkout',
+          element: <CheckOut />
         }
       ]
     }
