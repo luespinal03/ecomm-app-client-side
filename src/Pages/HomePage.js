@@ -33,7 +33,7 @@ const HomePage = () => {
 
     return (
         <div>
-            <h1>GameShack</h1>
+            <h1>GameTron</h1>
             <h3>Top Brands</h3>
             <br />
             <img src='https://media.gamestop.com/i/gamestop/Homepage_5_Column_BrandLogo_Xbox_264x150_D.webp' />

@@ -25,7 +25,7 @@ const RegistrationPage = () => {
 
     return (
         <div className='registration-card'>
-            <h1>Welcome !</h1>
+            <h1>Welcome to GameTron!</h1>
             <label type='text'>Email: </label>
             <input type="email" placeholder='john@doe.com' onChange={(e) => { setEmail(e.target.value) }} className="reg-email"></input>
             <br />

@@ -1,5 +1,6 @@
 import React from 'react'
 import ShoppingCartCard from '../Components/ShoppingCartCard'
+import ProceedToOrder from '../Components/ProceedToOrder'
 
 
 const ShoppingCart = ({ shoppingCart }) => {
@@ -10,7 +11,7 @@ const ShoppingCart = ({ shoppingCart }) => {
             {shoppingCart.map((product, index) => {
                 return <ShoppingCartCard key={index} product={product} />
             })}
-        </div>
+            <ProceedToOrder /></div>
     }
 }
 

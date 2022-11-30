@@ -36,11 +36,23 @@
 }
 
 .product-features {
-  font-size: 17px;
+  font-size: 22px;
   padding: 0px 15px 0px 15px;
   width: fit-content;
 }
 
 .toggle_option {
-  font-size: large;
+  font-size: 30px;
+}
+
+a {
+  margin-left: 30px;
+  color: black;
+  font-size: 25px;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: rgb(154, 154, 154);
+  cursor: pointer;
 }
