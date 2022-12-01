@@ -4,7 +4,22 @@ import './HomePage.css'
 import Footer from '../Components/Footer';
 import Recommended from '../Components/Recommended'
 
+import xboxImg from '../assets/xbox.jpeg'
+import nintendoImg from '../assets/nintendo.jpeg'
+import playstationImg from '../assets/playstation.jpeg'
+import pokemonImg from '../assets/pokemon.jpeg'
+import funkoImg from '../assets/funko.jpeg'
+import metaImg from '../assets/meta.jpeg'
+import HolidayBanner from '../assets/HolidaySleigh.jpeg'
+import razerImg from '../assets/razer.jpeg'
+import amdImg from '../assets/amd.jpeg'
+import turtleBImg from '../assets/turtleBeach.jpeg'
+import newReleases from '../assets/newReleases.jpeg'
+
+
 const urlEndPoint = process.env.REACT_APP_URL_ENDPOINT;
+
+
 
 const HomePage = () => {
     const [message, setMessage] = useState('');
@@ -33,21 +48,97 @@ const HomePage = () => {
 
     return (
         <div>
-            <h1>GameTron</h1>
-            <h3>Top Brands</h3>
+            <div className='main-blade-image mt-20'>
+                <img className='w-100 blage-img ls-is-cached lazyloaded' src={HolidayBanner} />
+            </div>
+
+
+            <h2 className='top-brands'>Top Brands</h2>
+
+
             <br />
-            <img src='https://media.gamestop.com/i/gamestop/Homepage_5_Column_BrandLogo_Xbox_264x150_D.webp' />
+            <section className='overflow-hidden text-gray-700'>
+                <div className="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
+                    <div className="flex flex-wrap -m-1 md:-m-2">
+                        <div className="flex flex-wrap w-1/3">
+                            <div className="w-full p-1 md:p-2">
+                                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
+                                    src={xboxImg} />
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap w-1/3">
+                            <div className="w-full p-1 md:p-2">
+                                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
+                                    src={playstationImg} />
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap w-1/3">
+                            <div className="w-full p-1 md:p-2">
+                                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
+                                    src={nintendoImg} />
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap w-1/3">
+                            <div className="w-full p-1 md:p-2">
+                                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
+                                    src={pokemonImg} />
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap w-1/3">
+                            <div className="w-full p-1 md:p-2">
+                                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
+                                    src={funkoImg} />
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap w-1/3">
+                            <div className="w-full p-1 md:p-2">
+                                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
+                                    src={metaImg} />
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap w-1/3">
+                            <div className="w-full p-1 md:p-2">
+                                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
+                                    src={razerImg} />
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap w-1/3">
+                            <div className="w-full p-1 md:p-2">
+                                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
+                                    src={turtleBImg} />
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap w-1/3">
+                            <div className="w-full p-1 md:p-2">
+                                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
+                                    src={amdImg} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-            <img src='https://media.gamestop.com/i/gamestop/Homepage_5_Column_BrandLogo_PlayStation_264x150_D.webp' />
 
-            <img src='https://media.gamestop.com/i/gamestop/Homepage_5_Column_BrandLogo_Nintendo_264x150_D.webp' />
+            <div className='main-blade-image mt-20'>
+                <img className='w-100 blage-img ls-is-cached lazyloaded' src={newReleases} />
+            </div>
 
-            <img src='https://media.gamestop.com/i/gamestop/Homepage_5_Column_BrandLogo_Pokemon_264x150_D.webp' />
+
             <h3>{message}</h3>
-            {/* <Recommended />
-            <Footer /> */}
+            <Footer />
         </div>
     )
 }
 
 export default HomePage
+
+
+{/* 
+    // < img src = { xboxImg } />
+    //             <img src={playstationImg} />
+    //             <img src={nintendoImg} />
+    //             <img src={pokemonImg} />
+    //             <img src={funkoImg} />
+    //             <img src={metaImg} />
+    //             <img src={razerImg} />
+    //             <img src={turtleBImg} /> */}

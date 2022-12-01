@@ -9,11 +9,11 @@
 .product-card-title {
   font-size: 30px;
 }
-button {
+/* button {
   background: #00aaff;
   height: 80px;
   width: 460px;
-}
+} */
 
 button:hover {
   cursor: pointer;

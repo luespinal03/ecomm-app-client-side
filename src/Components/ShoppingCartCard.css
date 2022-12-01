@@ -4,6 +4,21 @@
   flex-wrap: wrap;
   width: 40vw;
   margin: 20px;
+  margin-left: 40px;
+}
+
+.minus-button {
+  background-color: white;
+  width: 25px;
+  border-color: white;
+  color: rgb(75 85 99);
+}
+
+.plus-button {
+  background-color: white;
+  width: 25px;
+  border-color: white;
+  color: rgb(75 85 99);
 }
 
 .cart-product-img {

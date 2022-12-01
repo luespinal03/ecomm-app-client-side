@@ -7,13 +7,16 @@ import RegistrationPage from './Pages/RegistrationPage';
 import './App.css';
 import ProductsPage from './Pages/ProductsPage';
 import ShoppingCart from './Components/ShoppingCart';
-import CheckOut from './Components/CheckOut'
+import CheckOut from './Components/CheckOut';
+import About from './Components/About'
+import Support from './Components/Support'
 
 
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT
 
 function App() {
   const [shoppingCart, setShoppingCart] = useState([])
+
   const [itemsList, setItemsList] = useState([]);
 
   console.log(itemsList)
@@ -86,6 +89,14 @@ function App() {
         {
           path: '/checkout',
           element: <CheckOut />
+        },
+        {
+          path: '/about',
+          element: <About />
+        },
+        {
+          path: '/support',
+          element: <Support />
         }
       ]
     }

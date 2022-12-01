@@ -1,3 +1,12 @@
-img {
-  margin-left: 20px;
+.brands {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+
+.top-brands {
+  background-color: white;
+  height: 3vh;
+  margin-bottom: -26px;
 }

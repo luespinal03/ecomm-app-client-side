@@ -21,7 +21,7 @@ const LoginPage = () => {
         }
     }
     return (
-        <div className='login-card'>
+        <div className='bg-white rounded-xl shadow-2xl mt-20'>
             <h1>Welcome back !</h1>
             <label type='text'>Email: </label>
             <input type="email" onChange={(e) => { setEmail(e.target.value) }} className='login-email' placeholder='john@doe.com'></input>
@@ -32,6 +32,7 @@ const LoginPage = () => {
             <br />
 
             <button onClick={loginHandler} className='login-button'>Login</button>
+            <button className='px-8 py-3' onClick={() => { navigate('/registration') }}>Sign Up</button>
             <h3>{loginMessage}</h3>
         </div>
     )
