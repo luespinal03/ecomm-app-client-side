@@ -18,6 +18,7 @@ const ShoppingCartCard = ({ product }) => {
 
         <div id='product-card' className="container mx-auto mt-40 bg-gray-100">
             <div className="flex shadow-md my-10">
+                {/* remove w-full if need to go back to original card */}
                 <div className="w-full bg-white px-10 py-10">
                     <div className="flex justify-between border-b pb-8">
                         <h1 className="font-semibold text-2xl"><AiOutlineHome /> Ship To Home</h1>
@@ -61,10 +62,9 @@ const ShoppingCartCard = ({ product }) => {
                         <span className="text-center w-1/5 font-semibold text-sm">{product.price}</span>
                     </div>
 
-                    {/* code below is good to  */}
 
 
-                    {/* need to find a way to find the portion that would add another product from the code below. Pull it out and insert it into the gen big card on top */}
+
 
 
                     {/* SECOND ITEM SUBMITTED INTO THE SHOPPING CART */}
@@ -134,7 +134,7 @@ const ShoppingCartCard = ({ product }) => {
 
 
 
-
+                {/* ORDER SUMMARY SECTION */}
                 {/* <div id="summary" className="w-1/4 px-8 py-10">
                     <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
                     <div className="flex justify-between mt-10 mb-5">

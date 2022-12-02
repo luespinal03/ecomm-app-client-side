@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { animateScroll as scroll, } from 'react-scroll'
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Hooks/Auth";
 import { Link } from 'react-router-dom';
 import './NavBar.css'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
@@ -9,6 +10,7 @@ import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 
 const Navbar = () => {
+    const auth = useAuth()
     const navigate = useNavigate();
     const [nav, setNav] = useState(false)
     const handleClick = () => setNav(!nav)
@@ -33,9 +35,27 @@ const Navbar = () => {
                 <div className='hidden md:flex pr-4 mb-4'>
                     <Link to='/shoppingcart' className='mr-10'><AiOutlineShoppingCart size={50} />
                     </Link>
-                    <button className='border-none bg-transparent text-black mr-4' onClick={() => { navigate('/login') }}>
-                        Sign In
-                    </button>
+
+                    <div >
+                        {auth.userEmail !== null && auth.userEmail.length > 0 ? (
+                            <button className="border-none bg-transparent text-black mr-4 mt-2"
+                                onClick={(e) => {
+                                    auth.logout();
+                                    navigate("/login");
+                                }}
+                            >
+                                Sign Out
+                            </button>
+                        ) : (
+                            <button className='border-none bg-transparent text-black mr-4' onClick={() => { navigate('/login') }}>
+                                Sign In
+                            </button>
+                        )}
+                    </div>
+
+
+
+
                 </div>
                 <div className='md:hidden mr-4' onClick={handleClick}>
                     {!nav ? <MenuIcon className='w-5' /> : <XIcon className='w-5' />}
