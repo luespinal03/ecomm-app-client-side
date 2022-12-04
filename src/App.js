@@ -16,6 +16,8 @@ import ErrorPage from './Pages/ErrorPage'
 
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT
 
+
+
 function App() {
   const [shoppingCart, setShoppingCart] = useState([])
 
@@ -36,6 +38,7 @@ function App() {
 
 
   const [message, setMessage] = useState('');
+  const [email, setEmail] = useState('')
   const auth = useAuth();
 
   // When the application is first loading in, react needs to load in the user token from local storage and so we only want to call this fetch function if the user's token is not null. Additionally, when the user is logged out, the token will be null and we want to set the message back to an empty string in this case.
@@ -57,6 +60,7 @@ function App() {
     if (auth.userToken === null) {
       setMessage("")
     }
+    setEmail(auth.userEmail)
   }, [auth.userToken]);
 
 
@@ -91,13 +95,13 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <GlobalLayout />,
+      element: <GlobalLayout email={email} />,
       errorElement: <ErrorPage />,
       children: [
         // index is true in order to make it default element that displays for the path?
         {
           index: true,
-          element: <HomePage message={message} />
+          element: <HomePage message={message} email={email} />
         },
         {
           path: '/login',

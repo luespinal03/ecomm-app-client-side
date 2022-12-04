@@ -9,7 +9,7 @@ import { AiOutlineShoppingCart } from 'react-icons/ai'
 
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 
-const Navbar = () => {
+const Navbar = ({ email }) => {
     const auth = useAuth()
     const navigate = useNavigate();
     const [nav, setNav] = useState(false)
@@ -32,6 +32,7 @@ const Navbar = () => {
 
                     </ul>
                 </div>
+                <h4 className='ml-auto'>Welcome: {email}</h4>
                 <div className='hidden md:flex pr-4 mb-4'>
                     <Link to='/shoppingcart' className='mr-10'><AiOutlineShoppingCart size={50} />
                     </Link>
