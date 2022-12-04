@@ -5,8 +5,6 @@ import { useAuth } from "../Hooks/Auth";
 import { Link } from 'react-router-dom';
 import './NavBar.css'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
-
-
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 
 const Navbar = ({ email }) => {
@@ -32,14 +30,18 @@ const Navbar = ({ email }) => {
 
                     </ul>
                 </div>
-                <h4 className='ml-auto'>Welcome: {email}</h4>
+
+                <div className='ml-auto mr-3'> {auth.userEmail !== null && auth.userEmail.length > 0 ? (<h4>Welcome: {email}</h4>) : (<div />)}
+
+                </div>
+
                 <div className='hidden md:flex pr-4 mb-4'>
-                    <Link to='/shoppingcart' className='mr-10'><AiOutlineShoppingCart size={50} />
+                    <Link to='/shoppingcart' className='mr-10 mt-2'><AiOutlineShoppingCart size={35} />
                     </Link>
 
                     <div >
                         {auth.userEmail !== null && auth.userEmail.length > 0 ? (
-                            <button className="border-none bg-transparent text-black mr-4 mt-2"
+                            <button className=" mt-3 border-none bg-transparent text-black mr-4"
                                 onClick={(e) => {
                                     auth.logout();
                                     navigate("/login");
@@ -48,21 +50,20 @@ const Navbar = ({ email }) => {
                                 Sign Out
                             </button>
                         ) : (
-                            <button className='border-none bg-transparent text-black mr-4' onClick={() => { navigate('/login') }}>
+                            <button className='mt-3 border-none bg-transparent text-black mr-4' onClick={() => { navigate('/login') }}>
                                 Sign In
                             </button>
                         )}
                     </div>
-
-
-
-
                 </div>
                 <div className='md:hidden mr-4' onClick={handleClick}>
                     {!nav ? <MenuIcon className='w-5' /> : <XIcon className='w-5' />}
 
                 </div>
             </div>
+
+
+            {/* code below is handling when the screen is small like on a mobile device */}
 
             <ul className={!nav ? 'hidden' : 'absolute bg-zinc-200 w-full px-8'}>
                 <li className='border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="/" smooth={true} duration={500}>Home</Link></li>
@@ -72,7 +73,31 @@ const Navbar = ({ email }) => {
                 <li className='border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="pricing" smooth={true} offset={-50} duration={500}>Pricing</Link></li> */}
 
                 <div className='flex flex-col my-4'>
-                    <button className='bg-transparent text-indigo-600 px-8 py-3 mb-4' onClick={() => { navigate('/login') }}>Sign In</button>
+
+
+                    {/* <button className='bg-transparent text-indigo-600 px-8 py-3 mb-4' onClick={() => { navigate('/login') }}>Sign In</button> */}
+
+
+                    <div >
+                        {auth.userEmail !== null && auth.userEmail.length > 0 ? (
+                            <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4"
+                                onClick={(e) => {
+                                    auth.logout();
+                                    navigate("/login");
+                                }}
+                            >
+                                Sign Out
+                            </button>
+                        ) : (
+                            <button className='bg-transparent text-indigo-600 px-8 py-3 mb-4' onClick={() => { navigate('/login') }}>
+                                Sign In
+                            </button>
+                        )}
+                    </div>
+
+
+
+
                     <button className='px-8 py-3' onClick={() => { navigate('/registration') }}>Sign Up</button>
                 </div>
             </ul>

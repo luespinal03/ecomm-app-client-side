@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react';
 import { images } from '../constants';
-import { useAuth } from '../Hooks/Auth';
 import './HomePage.css'
-import Footer from '../Components/Footer';
 import Recommended from '../Components/Recommended'
+import Footer from '../Components/Footer';
 
 
 
@@ -155,14 +153,3 @@ const HomePage = ({ message }) => {
 }
 
 export default HomePage
-
-
-{/* 
-    // < img src = { xboxImg } />
-    //             <img src={playstationImg} />
-    //             <img src={nintendoImg} />
-    //             <img src={pokemonImg} />
-    //             <img src={funkoImg} />
-    //             <img src={metaImg} />
-    //             <img src={razerImg} />
-    //             <img src={turtleBImg} /> */}
