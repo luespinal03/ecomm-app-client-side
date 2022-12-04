@@ -20,7 +20,7 @@ const HomePage = ({ message }) => {
             </div>
 
 
-            <h2 className='top-brands'>Top Brands</h2>
+            <h2 className='top-brands mt-10 mb-1'>Top Brands</h2>
 
 
             <br />
@@ -88,7 +88,7 @@ const HomePage = ({ message }) => {
 
             <div className='main-blade-image mt-20'>
                 <img className='w-100 blage-img ls-is-cached lazyloaded' src={images.newReleases} />
-                <h2 className='mt-10'>New Releases</h2>
+                <h2 className='mt-10 mb-4'>New Releases</h2>
                 <section className='overflow-hidden text-gray-700'>
                     <div className="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
                         <div className="flex flex-wrap -m-1 md:-m-2">
@@ -107,43 +107,43 @@ const HomePage = ({ message }) => {
                             <div className="flex flex-wrap w-1/3">
                                 <div className="w-full p-1 md:p-2">
                                     <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
-                                        src={images.nintendoImg} />
+                                        src={images.dragonQuest} />
                                 </div>
                             </div>
                             <div className="flex flex-wrap w-1/3">
                                 <div className="w-full p-1 md:p-2">
                                     <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
-                                        src={images.pokemonImg} />
+                                        src={images.hogwarts} />
                                 </div>
                             </div>
                             <div className="flex flex-wrap w-1/3">
                                 <div className="w-full p-1 md:p-2">
                                     <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
-                                        src={images.funkoImg} />
+                                        src={images.finalFantasy} />
                                 </div>
                             </div>
                             <div className="flex flex-wrap w-1/3">
                                 <div className="w-full p-1 md:p-2">
                                     <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
-                                        src={images.metaImg} />
+                                        src={images.forspoken} />
                                 </div>
                             </div>
                             <div className="flex flex-wrap w-1/3">
                                 <div className="w-full p-1 md:p-2">
                                     <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
-                                        src={images.razerImg} />
+                                        src={images.lor} />
                                 </div>
                             </div>
                             <div className="flex flex-wrap w-1/3">
                                 <div className="w-full p-1 md:p-2">
                                     <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
-                                        src={images.turtleBImg} />
+                                        src={images.deathDoors} />
                                 </div>
                             </div>
                             <div className="flex flex-wrap w-1/3">
                                 <div className="w-full p-1 md:p-2">
                                     <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
-                                        src={images.amdImg} />
+                                        src={images.skullBones} />
                                 </div>
                             </div>
                         </div>

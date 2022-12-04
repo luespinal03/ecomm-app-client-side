@@ -30,9 +30,7 @@ button:hover {
 }
 
 .product-features {
-  font-size: 25px;
-  padding: 0px 15px 0px 15px;
-  width: fit-content;
+  overflow: auto;
 }
 
 .product-img {
