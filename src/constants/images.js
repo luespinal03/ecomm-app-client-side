@@ -19,6 +19,7 @@ import hogwarts from '../assets/newReleases/hogwartsLegacy.jpeg'
 import lor from '../assets/newReleases/lor.jpeg'
 import deathDoors from '../assets/newReleases/deathDoors.jpeg'
 import skullBones from '../assets/newReleases/skull&Bones.jpeg'
+import profilepic from '../assets/profilepicModified.jpeg'
 
 
 export default {
@@ -26,6 +27,7 @@ export default {
     xboxImg,
     justdance,
     nintendoImg,
+    profilepic,
     playstationImg,
     pokemonImg,
     funkoImg,

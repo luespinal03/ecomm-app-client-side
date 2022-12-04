@@ -11,8 +11,8 @@ const Navbar = ({ email }) => {
     const auth = useAuth()
     const navigate = useNavigate();
     const [nav, setNav] = useState(false)
-    const handleClick = () => setNav(!nav)
 
+    const handleClick = () => setNav(!nav)
     const handleClose = () => setNav(!nav)
 
     return (
@@ -21,9 +21,9 @@ const Navbar = ({ email }) => {
             <div className='free-shipping-banner'>FREE 1-3 Day Shipping in Orders over $59</div>
             <div className='px-2 flex justify-between items-center w-full h-full'>
                 <div className='flex items-center'>
-                    <a href="/" className='no-underline'><h1 className='text-3xl font-bold mr-4 sm:text-4xl mb-4'>GAMESHAK.</h1></a>
+                    <a href="/" className='no-underline ml-2'><h1 className='text-3xl font-bold mr-4 sm:text-4xl mb-4'>GAMESHAK.</h1>
+                    </a>
                     <ul className='hidden md:flex'>
-                        {/* <li><Link to="/" smooth={true} duration={500}>Home</Link></li> */}
                         <li><Link to="/about" smooth={true} offset={-200} duration={500}>About</Link></li>
                         <li><Link to="/support" smooth={true} offset={-50} duration={500}>Support</Link></li>
                         <li><Link to="/products" smooth={true} offset={-100} duration={500}>Products</Link></li>
@@ -65,19 +65,15 @@ const Navbar = ({ email }) => {
 
             {/* code below is handling when the screen is small like on a mobile device */}
 
-            <ul className={!nav ? 'hidden' : 'absolute bg-zinc-200 w-full px-8'}>
+            <ul className={!nav ? 'hidden' : 'absolute bg-zinc-200 w-full px-10'}>
                 <li className='border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="/" smooth={true} duration={500}>Home</Link></li>
                 <li className='border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="/about" smooth={true} offset={-200} duration={500}>About</Link></li>
                 <li className='border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="/support" smooth={true} offset={-50} duration={500}>Support</Link></li>
-                {/* <li className='border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="platforms" smooth={true} offset={-100} duration={500}>Platforms</Link></li>
-                <li className='border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="pricing" smooth={true} offset={-50} duration={500}>Pricing</Link></li> */}
+                <li className='border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="/products" smooth={true} offset={-100} duration={500}>Products</Link></li>
+                {/* <li className='border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="pricing" smooth={true} offset={-50} duration={500}>Pricing</Link></li> */}
 
                 <div className='flex flex-col my-4'>
-
-
                     {/* <button className='bg-transparent text-indigo-600 px-8 py-3 mb-4' onClick={() => { navigate('/login') }}>Sign In</button> */}
-
-
                     <div >
                         {auth.userEmail !== null && auth.userEmail.length > 0 ? (
                             <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4"
@@ -94,10 +90,6 @@ const Navbar = ({ email }) => {
                             </button>
                         )}
                     </div>
-
-
-
-
                     <button className='px-8 py-3' onClick={() => { navigate('/registration') }}>Sign Up</button>
                 </div>
             </ul>

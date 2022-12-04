@@ -18,7 +18,7 @@ const Support = () => {
                 <div className='px-4 py-12'>
                     <h2 className='text-3xl pt-8 text-slate-300 uppercase text-center'>Support</h2>
                     <h3 className='text-5xl font-bold py-6 text-center'>Needing a solution to an issue?</h3>
-                    <p className='py-4 text-3xl text-slate-300'>Here at GAMESHAK we make customer service one of our top priorities. We know how stressful it can be to need help with an order. Therefore, we have custoemr service reps 24/7 working around the clock to facilitate you with your needs. Wether you are pulling an all nighter and need a certain game to distract you from the real world, or just simply hanging out with friends. Here at GAMESHAK we got your back. </p>
+                    <p className='py-4 text-2xl text-slate-300'>Here at GAMESHAK we make customer service one of our top priorities. We know how stressful it can be to need help with an order. Therefore, we have custoemr service reps 24/7 working around the clock to facilitate you with your needs. Wether you are pulling an all nighter and need a certain game to distract you from the real world, or just simply hanging out with friends. Here at GAMESHAK we got your back. </p>
                 </div>
 
                 <div className='grid grid-cols-1 lg:grid-cols-3 relative gap-x-8 gap-y-16 px-4 pt-12 sm:pt-20 text-black'>
@@ -54,6 +54,7 @@ const Support = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
 
     );

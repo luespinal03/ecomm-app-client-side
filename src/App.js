@@ -130,7 +130,7 @@ function App() {
         {
           path: '/support',
           element: <Support />
-        }
+        },
       ]
     }
   ])
