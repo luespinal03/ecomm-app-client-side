@@ -5,7 +5,7 @@ import { useNavigate, Link, Navigate } from "react-router-dom";
 
 
 
-const ProceedToOrder = () => {
+const OrderSummary = () => {
     const navigate = useNavigate();
     return (
 
@@ -27,16 +27,18 @@ const ProceedToOrder = () => {
                 <input type="text" id="promo" placeholder="Enter your code" className="p-2 text-sm w-full" />
             </div>
             <button className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Apply</button>
-            <div className="border-t mt-8">
-                <div className="flex font-semibold justify-between py-6 text-sm uppercase">
+
+
+            <div className="">
+                <div className="flex font-semibold justify-between py-4 text-sm uppercase">
                     <span>Total cost</span>
                     <span>$600</span>
                 </div>
-                <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full" onClick={() => { navigate('/checkout') }}>Checkout</button>
+                <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 px-5 py-4 text-sm text-white uppercase w-full" onClick={() => { navigate('/checkout') }}>Checkout</button>
             </div>
         </div>
 
     )
 }
 
-export default ProceedToOrder
+export default OrderSummary

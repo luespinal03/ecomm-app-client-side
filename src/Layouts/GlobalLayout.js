@@ -8,6 +8,8 @@ const GlobalLayout = ({ email }) => {
         <div className='flex'>
             <NavBar email={email} />
             <Outlet />
+            {/* <Footer /> */}
+
         </div>
     )
 }

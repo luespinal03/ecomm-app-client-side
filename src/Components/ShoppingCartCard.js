@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { AiOutlineHome } from 'react-icons/ai'
 import './ShoppingCartCard.css'
+import ItemsInCartCard from './ItemsInCartCard';
 
 const ShoppingCartCard = ({ product }) => {
     const [quantity, setQuantity] = useState(1);
@@ -30,6 +31,16 @@ const ShoppingCartCard = ({ product }) => {
                         <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
                         <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
                     </div>
+
+                    {/* {shoppingCart.map((product, index) => {
+                        return (
+                            <ShoppingCartCard key={index} product={product} />
+                        )
+                    })} */}
+
+                    {/* {ItemsInCartCard.map((product, in))} */}
+                    <ItemsInCartCard product={product} />
+
                     <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
                         <div className="flex w-2/5">
                             <div className="w-20">
@@ -135,7 +146,7 @@ const ShoppingCartCard = ({ product }) => {
 
 
                 {/* ORDER SUMMARY SECTION */}
-                {/* <div id="summary" className="w-1/4 px-8 py-10">
+                <div id="summary" className="w-1/4 px-8 py-10">
                     <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
                     <div className="flex justify-between mt-10 mb-5">
                         <span className="font-semibold text-sm uppercase">Items 3</span>
@@ -159,7 +170,7 @@ const ShoppingCartCard = ({ product }) => {
                         </div>
                         <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full" onClick={() => { navigate('/checkout') }}>Checkout</button>
                     </div>
-                </div> */}
+                </div>
 
             </div>
         </div>

@@ -20,17 +20,17 @@ const ShoppingCart = ({ shoppingCart }) => {
     }
     else if (shoppingCart.length > 0) {
         return <div>
-            <div className='mt-20'>
+            <div>
                 {/* <h1 className='my-10'>ShoppingCart</h1> */}
                 {shoppingCart.map((product, index) => {
                     return (
                         <ShoppingCartCard key={index} product={product} />
                     )
                 })}
-                <OrderSummary />
+                {/* <OrderSummary /> */}
             </div>
 
-            <div className='footer-in-full-shoppingcart'>
+            <div className='mt-[43.9rem] vw-100'>
                 <Footer />
             </div>
 

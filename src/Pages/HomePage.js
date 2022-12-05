@@ -10,17 +10,14 @@ import Footer from '../Components/Footer';
 
 const HomePage = ({ message }) => {
 
-
     return (
-        <div>
+        <div >
             <div className='main-blade-image mt-20'>
-                <img className='w-100 blage-img ls-is-cached lazyloaded' src={images.HolidayBanner} />
+                <img className='vw-100 blage-img ls-is-cached lazyloaded' src={images.HolidayBanner} />
             </div>
-
 
             <h2 className='top-brands mt-10 mb-1'>Top Brands</h2>
 
-            <br />
             <section className='overflow-hidden text-gray-700'>
                 <div className="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
                     <div className="flex flex-wrap -m-1 md:-m-2">
@@ -85,7 +82,7 @@ const HomePage = ({ message }) => {
 
             <div className='main-blade-image mt-20'>
                 <img className='w-100 blage-img ls-is-cached lazyloaded' src={images.newReleases} />
-                <h2 className='mt-10 mb-4'>New Releases</h2>
+                <h2 className='mt-20 mb-4'>New Releases</h2>
                 <section className='overflow-hidden text-gray-700'>
                     <div className="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
                         <div className="flex flex-wrap -m-1 md:-m-2">

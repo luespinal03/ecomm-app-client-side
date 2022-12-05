@@ -45,7 +45,10 @@ const RegistrationPage = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <div className='fixed bottom-0 w-100'>
+                <Footer />
+            </div>
+
         </div>
 
     )
