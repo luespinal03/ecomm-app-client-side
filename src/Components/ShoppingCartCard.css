@@ -14,11 +14,19 @@
   color: rgb(75 85 99);
 }
 
+.minus-button:hover {
+  background-color: rgb(192, 192, 192);
+}
+
 .plus-button {
   background-color: white;
   width: 25px;
   border-color: white;
   color: rgb(75 85 99);
+}
+
+.plus-button:hover {
+  background-color: rgb(192, 192, 192);
 }
 
 .cart-product-img {

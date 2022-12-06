@@ -1,18 +1,19 @@
 import React from 'react'
 import ShoppingCartCard from './ShoppingCartCard'
-import OrderSummary from './OrderSummary'
+// import OrderSummary from './OrderSummary'
 import Footer from './Footer'
-import './ShoppingCart.css'
+// import './ShoppingCart.css'
 
 
-const ShoppingCart = ({ shoppingCart }) => {
+const ShoppingCart = ({ shoppingCart, quantity, setQuantity }) => {
     if (shoppingCart.length === 0) {
         return (<div>
             <div>
                 <h3 className='mt-40 ml-20'>Your Shopping Cart is Empty</h3>
             </div>
 
-            <div className='footer-in-empty-shoppingcart'>
+
+            <div className='w-screen mt-[83.6rem]'>
                 <Footer />
             </div>
 
@@ -22,15 +23,15 @@ const ShoppingCart = ({ shoppingCart }) => {
         return <div>
             <div>
                 {/* <h1 className='my-10'>ShoppingCart</h1> */}
-                {shoppingCart.map((product, index) => {
-                    return (
-                        <ShoppingCartCard key={index} product={product} />
-                    )
-                })}
+                {/* {shoppingCart.map((product, index) => {
+                    return ( */}
+                <ShoppingCartCard shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} />
+                {/* )
+                })} */}
                 {/* <OrderSummary /> */}
             </div>
 
-            <div className='mt-[43.9rem] vw-100'>
+            <div className='mt-[38.9rem] w-screen'>
                 <Footer />
             </div>
 

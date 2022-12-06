@@ -1,6 +1,5 @@
 import { images } from '../constants';
 import './HomePage.css'
-import Recommended from '../Components/Recommended'
 import Footer from '../Components/Footer';
 
 
@@ -13,7 +12,7 @@ const HomePage = ({ message }) => {
     return (
         <div >
             <div className='main-blade-image mt-20'>
-                <img className='vw-100 blage-img ls-is-cached lazyloaded' src={images.HolidayBanner} />
+                <img className='vw-100 blage-img ls-is-cached lazyloaded' src={images.HolidayBanner} alt='' />
             </div>
 
             <h2 className='top-brands mt-10 mb-1'>Top Brands</h2>

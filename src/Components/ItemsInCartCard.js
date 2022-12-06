@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import './ShoppingCart.css'
 
-const ItemsInCartCard = ({ product }) => {
+const ItemsInCartCard = ({ product, quantity, setQuantity }) => {
 
-    const [quantity, setQuantity] = useState(1);
+    // const [quantity, setQuantity] = useState(1);
     const navigate = useNavigate();
 
     return (
@@ -14,15 +15,15 @@ const ItemsInCartCard = ({ product }) => {
                     <img className="w-100" src={product.image} alt="" />
                 </div>
                 <div className="flex flex-col justify-between ml-4 flex-grow">
-                    <span className="font-bold text-sm">{product.title}</span>
-                    <span className="text-red-500 text-sm">{product.brand}</span>
+                    <span className="font-bold text-m">{product.title}</span>
+                    <span className="text-red-500 text-m">{product.brand}</span>
                     <a href="#" className="font-semibold hover:text-red-500 text-gray-500 text-sm">Remove</a>
                 </div>
             </div>
             <div className="flex justify-center w-1/5">
 
                 <button className='minus-button' onClick={() => {
-                    if (quantity > 0) {
+                    if (quantity > 1) {
                         const minusCount = quantity - 1
                         setQuantity(minusCount)
                     }
@@ -36,8 +37,8 @@ const ItemsInCartCard = ({ product }) => {
                 }}
                 >+</button>
             </div>
-            <span className="text-center w-1/5 font-semibold text-sm">{product.price}</span>
-            <span className="text-center w-1/5 font-semibold text-sm">{product.price}</span>
+            <span className="text-center w-1/5 font-semibold text-m">{product.price}</span>
+            <span className="text-center w-1/5 font-semibold text-m">{product.price}</span>
         </div>
     )
 }

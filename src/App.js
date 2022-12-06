@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import GlobalLayout from './Layouts/GlobalLayout';
 import HomePage from './Pages/HomePage';
+import ItemsInCartCard from './Components/ItemsInCartCard';
 import LoginPage from './Pages/LoginPage';
 import RegistrationPage from './Pages/SignUpPage';
 import './App.css';
@@ -70,6 +71,7 @@ function App() {
   // so far got everything added to the shopping cart, havent worked on gettin them displayed just yet. Code below its a function in charge of putting the product that got clicked on in a new object called productTobeAdded which then gets added into ...shoppingCart. The reason why we spread shoppingCart its so we can add to the existing values that are already in there. We created itemsInCart which is w.e its already in the cart plus productTobeAdded. Then we give setShoppingCart the value of itemsInCart
   const itemToShoppingCartHandler = (product) => {
 
+
     let productTobeAdded = {
       id: product.id,
       title: product.title,
@@ -85,8 +87,10 @@ function App() {
     const itemsInCart = [...shoppingCart, productTobeAdded]
     setShoppingCart(itemsInCart)
   }
-
   console.log(shoppingCart)
+
+
+  const [quantity, setQuantity] = useState(1);
 
 
 
@@ -117,7 +121,7 @@ function App() {
         },
         {
           path: '/shoppingcart',
-          element: <ShoppingCart shoppingCart={shoppingCart} />
+          element: <ShoppingCart shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} />
         },
         {
           path: '/checkout',

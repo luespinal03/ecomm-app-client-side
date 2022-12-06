@@ -1,23 +1,22 @@
 import React from 'react'
-import { Card, Button } from 'react-bootstrap'
-import ProceedToOrder from './OrderSummary'
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { AiOutlineHome } from 'react-icons/ai'
+import OrderSummary from '../Components/OrderSummary'
 import './ShoppingCartCard.css'
 import ItemsInCartCard from './ItemsInCartCard';
 
-const ShoppingCartCard = ({ product }) => {
-    const [quantity, setQuantity] = useState(1);
+const ShoppingCartCard = ({ shoppingCart, quantity, setQuantity }) => {
+
     const navigate = useNavigate();
 
-    // const addingButton = () => {
 
-    // }
+
+
 
     return (
 
-        <div id='product-card' className="container mx-auto mt-40 bg-gray-100">
+        <div className="container  mt-40 flex flex-col bg-gray-100">
             <div className="flex shadow-md my-10">
                 {/* remove w-full if need to go back to original card */}
                 <div className="w-full bg-white px-10 py-10">
@@ -27,56 +26,16 @@ const ShoppingCartCard = ({ product }) => {
                     </div>
                     <div className="flex mt-10 mb-5 ml-12">
                         <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
-                        <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">{quantity}</h3>
-                        <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
-                        <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
+                        <h3 className="font-semibold text-center text-gray-600 text-sm uppercase w-1/5 text-center">{quantity}</h3>
+                        <h3 className="font-semibold text-center text-gray-600 text-sm uppercase w-1/5 text-center">Price</h3>
+                        <h3 className="font-semibold text-center text-gray-600 text-sm uppercase w-1/5 text-center">Total</h3>
                     </div>
 
-                    {/* {shoppingCart.map((product, index) => {
+                    {shoppingCart.map((product, index) => {
                         return (
-                            <ShoppingCartCard key={index} product={product} />
+                            <ItemsInCartCard key={index} product={product} quantity={quantity} setQuantity={setQuantity} />
                         )
-                    })} */}
-
-                    {/* {ItemsInCartCard.map((product, in))} */}
-                    <ItemsInCartCard product={product} />
-
-                    <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-                        <div className="flex w-2/5">
-                            <div className="w-20">
-                                <img className="w-100" src={product.image} alt="" />
-                            </div>
-                            <div className="flex flex-col justify-between ml-4 flex-grow">
-                                <span className="font-bold text-sm">{product.title}</span>
-                                <span className="text-red-500 text-sm">{product.brand}</span>
-                                <a href="#" className="font-semibold hover:text-red-500 text-gray-500 text-sm">Remove</a>
-                            </div>
-                        </div>
-                        <div className="flex justify-center w-1/5">
-
-                            <button className='minus-button' onClick={() => {
-                                if (quantity > 0) {
-                                    const minusCount = quantity - 1
-                                    setQuantity(minusCount)
-                                }
-                            }}>-</button>
-
-                            <input className="mx-2 border text-center w-8" type="text" value={quantity} />
-
-                            <button className='plus-button' onClick={() => {
-                                const addCount = quantity + 1
-                                setQuantity(addCount)
-                            }}
-                            >+</button>
-                        </div>
-                        <span className="text-center w-1/5 font-semibold text-sm">{product.price}</span>
-                        <span className="text-center w-1/5 font-semibold text-sm">{product.price}</span>
-                    </div>
-
-
-
-
-
+                    })}
 
                     {/* SECOND ITEM SUBMITTED INTO THE SHOPPING CART */}
                     {/* <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
@@ -143,10 +102,9 @@ const ShoppingCartCard = ({ product }) => {
                 </div>
 
 
-
-
+                <OrderSummary />
                 {/* ORDER SUMMARY SECTION */}
-                <div id="summary" className="w-1/4 px-8 py-10">
+                {/* <div id="summary" className="w-1/4 px-8 py-10">
                     <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
                     <div className="flex justify-between mt-10 mb-5">
                         <span className="font-semibold text-sm uppercase">Items 3</span>
@@ -170,10 +128,10 @@ const ShoppingCartCard = ({ product }) => {
                         </div>
                         <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full" onClick={() => { navigate('/checkout') }}>Checkout</button>
                     </div>
-                </div>
-
+                </div> */}
             </div>
         </div>
+
     )
 }
 

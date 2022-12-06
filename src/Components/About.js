@@ -1,16 +1,10 @@
 import React from 'react'
 import { images } from '../constants'
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import {
-    FaFacebook,
-    FaGithub,
-    FaInstagram,
-    FaTwitter,
-    FaFillLinkedin,
-} from 'react-icons/fa'
-
 import { AiFillLinkedin } from 'react-icons/ai'
+import { FaGithub, FaTwitter, } from 'react-icons/fa'
+
+
 
 
 const myInfo = {
@@ -57,13 +51,6 @@ const About = () => {
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
     )
 }
 

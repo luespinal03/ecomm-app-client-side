@@ -1,7 +1,6 @@
 import React from 'react'
-import { Card, Button } from 'react-bootstrap'
 import './OrderSummary.css'
-import { useNavigate, Link, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -10,7 +9,7 @@ const OrderSummary = () => {
     return (
 
 
-        <div id="summary" className="w-1/4 px-8 py-10 bg-white">
+        <div id="summary" className="w-1/4 px-8 py-10 bg-gray-100">
             <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
             <div className="flex justify-between mt-10 mb-5">
                 <span className="font-semibold text-sm uppercase">Items 3</span>

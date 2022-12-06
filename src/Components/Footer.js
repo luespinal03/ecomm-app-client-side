@@ -1,12 +1,13 @@
 import React from 'react'
+import { AiFillLinkedin } from 'react-icons/ai'
+import { FaGithub, FaTwitter, } from 'react-icons/fa'
 
-import {
-    FaFacebook,
-    FaGithub,
-    FaInstagram,
-    FaTwitter,
-    FaTwitch,
-} from 'react-icons/fa'
+
+const myInfo = {
+    githubURL: 'https://github.com/luespinal03',
+    twitterURL: 'https://twitter.com/Javanoob03',
+    linkedinURl: 'https://www.linkedin.com/in/luis-espinal-440489165/'
+}
 
 const Footer = () => {
     return (
@@ -64,11 +65,9 @@ const Footer = () => {
             <div className='flex flex-col max-w-[1240px] px-2 py-4 mx-auto justify-between sm:flex-row text-center text-gray-500'>
                 <p className='py-4'>2022 GAMESHAK, LLC. All rights reserved</p>
                 <div className='flex justify-between sm:w-[300px] pt-4 text-2xl'>
-                    <FaFacebook />
-                    {/* <FaInstagram /> */}
-                    <FaTwitter />
-                    {/* <FaTwitch /> */}
-                    <FaGithub />
+                    <a href={myInfo.linkedinURl} className='text-white hover:text-gray-600'><AiFillLinkedin /> </a>
+                    <a href={myInfo.twitterURL} className='text-white hover:text-gray-600'><FaTwitter /></a>
+                    <a href={myInfo.githubURL} className='text-white hover:text-gray-600'><FaGithub /></a>
                 </div>
             </div>
         </div>
