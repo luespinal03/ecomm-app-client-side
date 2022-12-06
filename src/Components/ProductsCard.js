@@ -1,7 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import './ProductsCard.css'
-import { Card, Button } from 'react-bootstrap'
 
 
 const ProductsCard = ({ product, itemToShoppingCart }) => {

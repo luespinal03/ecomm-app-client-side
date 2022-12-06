@@ -6,7 +6,7 @@ import OrderSummary from '../Components/OrderSummary'
 import './ShoppingCartCard.css'
 import ItemsInCartCard from './ItemsInCartCard';
 
-const ShoppingCartCard = ({ shoppingCart, quantity, setQuantity }) => {
+const ShoppingCartCard = ({ shoppingCart, quantity, setQuantity, itemToShoppingCart }) => {
 
     const navigate = useNavigate();
 
@@ -26,14 +26,14 @@ const ShoppingCartCard = ({ shoppingCart, quantity, setQuantity }) => {
                     </div>
                     <div className="flex mt-10 mb-5 ml-12">
                         <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
-                        <h3 className="font-semibold text-center text-gray-600 text-sm uppercase w-1/5 text-center">{quantity}</h3>
+                        <h3 className="font-semibold text-center text-gray-600 text-sm uppercase w-1/5 text-center">{ }</h3>
                         <h3 className="font-semibold text-center text-gray-600 text-sm uppercase w-1/5 text-center">Price</h3>
                         <h3 className="font-semibold text-center text-gray-600 text-sm uppercase w-1/5 text-center">Total</h3>
                     </div>
 
                     {shoppingCart.map((product, index) => {
                         return (
-                            <ItemsInCartCard key={index} product={product} quantity={quantity} setQuantity={setQuantity} />
+                            <ItemsInCartCard key={index} product={product} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCart} />
                         )
                     })}
 

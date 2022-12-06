@@ -24,6 +24,7 @@ function App() {
 
   const [itemsList, setItemsList] = useState([]);
 
+  // itemsList is wherre all the products enter the application from the databate
   console.log(itemsList)
 
   useEffect(() => {
@@ -71,23 +72,46 @@ function App() {
   // so far got everything added to the shopping cart, havent worked on gettin them displayed just yet. Code below its a function in charge of putting the product that got clicked on in a new object called productTobeAdded which then gets added into ...shoppingCart. The reason why we spread shoppingCart its so we can add to the existing values that are already in there. We created itemsInCart which is w.e its already in the cart plus productTobeAdded. Then we give setShoppingCart the value of itemsInCart
   const itemToShoppingCartHandler = (product) => {
 
+    // let productTobeAdded = {
+    //   id: product.id,
+    //   title: product.title,
+    //   console: product.console,
+    //   features: product.features,
+    //   brand: product.brand,
+    //   type: product.type,
+    //   price: product.price,
+    //   genre: product.genre,
+    //   ratings: product.ratings,
+    //   image: product.image
+    // }
+    // const itemsInCart = [...shoppingCart, productTobeAdded]
+    // setShoppingCart(itemsInCart)
 
-    let productTobeAdded = {
-      id: product.id,
-      title: product.title,
-      console: product.console,
-      features: product.features,
-      brand: product.brand,
-      type: product.type,
-      price: product.price,
-      genre: product.genre,
-      ratings: product.ratings,
-      image: product.image
+    console.log(product)
+    const findingIndex = shoppingCart.findIndex((productSelected) => {
+      console.log(product)
+      console.log(productSelected)
+      return productSelected._id === product._id
+    })
+    console.log(findingIndex)
+
+    if (findingIndex === -1) {
+      setShoppingCart([...shoppingCart, { ...product, cartCount: 1 }]);
     }
-    const itemsInCart = [...shoppingCart, productTobeAdded]
-    setShoppingCart(itemsInCart)
+    else {
+      const updateCartItem = shoppingCart.map((cartItem) => {
+        if (cartItem._id === product._id) { //if cartItem is the same as item.id
+          cartItem.cartCount++
+          return cartItem
+        } else {
+          return cartItem
+        }
+      })
+      setShoppingCart(updateCartItem)
+    }
+    console.log(shoppingCart)
   }
-  console.log(shoppingCart)
+  // console.log(shoppingCart)
 
 
   const [quantity, setQuantity] = useState(1);
@@ -121,7 +145,7 @@ function App() {
         },
         {
           path: '/shoppingcart',
-          element: <ShoppingCart shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} />
+          element: <ShoppingCart shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCartHandler} />
         },
         {
           path: '/checkout',

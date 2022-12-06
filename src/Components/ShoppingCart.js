@@ -5,7 +5,7 @@ import Footer from './Footer'
 // import './ShoppingCart.css'
 
 
-const ShoppingCart = ({ shoppingCart, quantity, setQuantity }) => {
+const ShoppingCart = ({ shoppingCart, quantity, setQuantity, itemToShoppingCart }) => {
     if (shoppingCart.length === 0) {
         return (<div>
             <div>
@@ -25,7 +25,7 @@ const ShoppingCart = ({ shoppingCart, quantity, setQuantity }) => {
                 {/* <h1 className='my-10'>ShoppingCart</h1> */}
                 {/* {shoppingCart.map((product, index) => {
                     return ( */}
-                <ShoppingCartCard shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} />
+                <ShoppingCartCard shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCart} />
                 {/* )
                 })} */}
                 {/* <OrderSummary /> */}
