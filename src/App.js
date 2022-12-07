@@ -25,6 +25,7 @@ function App() {
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('')
   const [itemTotals, setItemTotals] = useState(0)
+  const [priceTotals, setPriceTotals] = useState(0)
   const [quantity, setQuantity] = useState(1);
   const auth = useAuth();
 
@@ -70,15 +71,29 @@ function App() {
 
   // this useEffect is watching the shoppingCart so everytime it changes it updates the overall quantity of the items in the cart
   useEffect(() => {
-
     const itemsInCartTotals = shoppingCart.reduce((container, item) => {
       container += item.cartCount
       return container
     }, 0)
-
     setItemTotals(itemsInCartTotals)
 
+
+    const itemsInCartPriceTotals = shoppingCart.reduce((container, item) => {
+      const allTotals = item.price * item.cartCount
+      container += allTotals
+
+      return container
+    }, 0)
+    setPriceTotals(itemsInCartPriceTotals)
+
   }, [shoppingCart])
+
+
+
+
+
+
+
 
 
 
@@ -117,7 +132,6 @@ function App() {
 
 
   const removeItemFromCartHandler = (product) => {
-
     const updateCartItem = shoppingCart.map((cartItem) => {
       if (cartItem._id === product._id && product.cartCount > 1) {
         cartItem.cartCount--
@@ -156,7 +170,7 @@ function App() {
         },
         {
           path: '/shoppingcart',
-          element: <ShoppingCart shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCartHandler} removeItemFromCartHandler={removeItemFromCartHandler} itemTotals={itemTotals} />
+          element: <ShoppingCart shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCartHandler} removeItemFromCartHandler={removeItemFromCartHandler} itemTotals={itemTotals} priceTotals={priceTotals} />
         },
         {
           path: '/checkout',

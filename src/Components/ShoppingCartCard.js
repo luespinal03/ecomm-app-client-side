@@ -3,7 +3,7 @@ import OrderSummary from '../Components/OrderSummary'
 import './ShoppingCartCard.css'
 import ItemsInCartCard from './ItemsInCartCard';
 
-const ShoppingCartCard = ({ shoppingCart, setQuantity, itemToShoppingCart, removeItemFromCartHandler, itemTotals }) => {
+const ShoppingCartCard = ({ shoppingCart, itemToShoppingCart, removeItemFromCartHandler, itemTotals, priceTotals }) => {
 
     return (
 
@@ -17,7 +17,7 @@ const ShoppingCartCard = ({ shoppingCart, setQuantity, itemToShoppingCart, remov
                     </div>
                     <div className="flex mt-10 mb-5 ml-12">
                         <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
-                        <h3 className="font-semibold text-center text-gray-600 text-sm uppercase w-1/5">{ }</h3>
+                        <h3 className="font-semibold text-center text-gray-600 text-sm uppercase w-1/5">Quantity</h3>
                         <h3 className="font-semibold text-center text-gray-600 text-sm uppercase w-1/5">Price</h3>
                         <h3 className="font-semibold text-center text-gray-600 text-sm uppercase w-1/5">Total</h3>
                     </div>
@@ -25,7 +25,7 @@ const ShoppingCartCard = ({ shoppingCart, setQuantity, itemToShoppingCart, remov
                     {/* this is where product gets initialized. Here we are mapping the current shoppingCart to create the products in it. The products then get passed into ItemsInCartCard so they can get their own individual cards which will be rendered inside the shoppingCartCard component  */}
                     {shoppingCart.map((product, index) => {
                         return (
-                            <ItemsInCartCard key={index} product={product} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCart} removeItemFromCartHandler={removeItemFromCartHandler} itemTotals={itemTotals} />
+                            <ItemsInCartCard key={index} product={product} itemToShoppingCart={itemToShoppingCart} removeItemFromCartHandler={removeItemFromCartHandler} />
                         )
                     })}
 
@@ -34,7 +34,7 @@ const ShoppingCartCard = ({ shoppingCart, setQuantity, itemToShoppingCart, remov
                         Continue Shopping
                     </a>
                 </div>
-                <OrderSummary />
+                <OrderSummary itemTotals={itemTotals} priceTotals={priceTotals} />
             </div>
         </div>
 

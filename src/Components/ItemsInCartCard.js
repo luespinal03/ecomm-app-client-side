@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import './ShoppingCart.css'
 
-const ItemsInCartCard = ({ product, setQuantity, itemToShoppingCart, removeItemFromCartHandler }) => {
+const ItemsInCartCard = ({ product, itemToShoppingCart, removeItemFromCartHandler }) => {
 
     // const [quantity, setQuantity] = useState(1);
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ const ItemsInCartCard = ({ product, setQuantity, itemToShoppingCart, removeItemF
                     <a href="#" className="font-semibold hover:text-red-500 text-gray-500 text-sm">Remove</a>
                 </div>
             </div>
-            {console.log(product.cartCount)}
+            {/* {console.log(product.cartCount)} */}
             <div className="flex justify-center w-1/5">
 
 
@@ -34,13 +34,13 @@ const ItemsInCartCard = ({ product, setQuantity, itemToShoppingCart, removeItemF
 
                 <button className='plus-button' onClick={() => {
                     itemToShoppingCart(product)
-                    setQuantity(product.cartCount)
+                    // setQuantity(product.cartCount)
                 }}
                 >+</button>
 
             </div>
             <span className="text-center w-1/5 font-semibold text-m">{product.price}</span>
-            <span className="text-center w-1/5 font-semibold text-m">{product.price}</span>
+            <span className="text-center w-1/5 font-semibold text-m">{product.cartCount * product.price}</span>
         </div>
     )
 }

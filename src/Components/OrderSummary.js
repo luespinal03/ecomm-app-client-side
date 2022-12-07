@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const OrderSummary = () => {
+const OrderSummary = ({ itemTotals, priceTotals }) => {
     const navigate = useNavigate();
     return (
 
@@ -12,8 +12,8 @@ const OrderSummary = () => {
         <div id="summary" className="w-1/4 px-8 py-10 bg-gray-100">
             <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
             <div className="flex justify-between mt-10 mb-5">
-                <span className="font-semibold text-sm uppercase">Items 3</span>
-                <span className="font-semibold text-sm">590$</span>
+                <span className="font-semibold text-sm uppercase">Items {itemTotals}</span>
+                <span className="font-semibold text-sm">{priceTotals}</span>
             </div>
             <div>
                 <label className="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
