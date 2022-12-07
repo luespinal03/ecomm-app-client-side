@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import GlobalLayout from './Layouts/GlobalLayout';
 import HomePage from './Pages/HomePage';
-import ItemsInCartCard from './Components/ItemsInCartCard';
 import LoginPage from './Pages/LoginPage';
 import RegistrationPage from './Pages/SignUpPage';
 import './App.css';
@@ -106,13 +105,33 @@ function App() {
 
 
   const removeItemFromCartHandler = (product) => {
-    const findingIndex = shoppingCart.findIndex((productSelected) => {
-      // console.log(product)
-      // console.log(productSelected)
-      // return the product that matched ids
+    const indexToDelete = shoppingCart.findIndex((productSelected) => {
+      // console.log('product selected' + productSelected.title)
+      // console.log('product' + product.title)
       return productSelected._id === product._id
     })
+
+    if (indexToDelete === 1 && product.cartCount > 0) {
+      setShoppingCart([...shoppingCart, { ...product, cartCount: -1 }])
+    }
+    else {
+      const updateCartItem = shoppingCart.map((cartItem) => {
+        if (cartItem._id === product._id && product.cartCount > 0) {
+          cartItem.cartCount--
+          return cartItem
+        } else {
+          return cartItem
+        }
+      })
+      setShoppingCart(updateCartItem)
+    }
+    console.log(shoppingCart)
   }
+
+
+
+
+
 
 
 
@@ -141,7 +160,7 @@ function App() {
         },
         {
           path: '/shoppingcart',
-          element: <ShoppingCart shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCartHandler} />
+          element: <ShoppingCart shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCartHandler} removeItemFromCartHandler={removeItemFromCartHandler} />
         },
         {
           path: '/checkout',

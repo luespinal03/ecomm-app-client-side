@@ -3,7 +3,7 @@ import OrderSummary from '../Components/OrderSummary'
 import './ShoppingCartCard.css'
 import ItemsInCartCard from './ItemsInCartCard';
 
-const ShoppingCartCard = ({ shoppingCart, quantity, setQuantity, itemToShoppingCart }) => {
+const ShoppingCartCard = ({ shoppingCart, quantity, setQuantity, itemToShoppingCart, removeItemFromCartHandler }) => {
 
     return (
 
@@ -25,7 +25,7 @@ const ShoppingCartCard = ({ shoppingCart, quantity, setQuantity, itemToShoppingC
                     {/* this is where product gets initialized. Here we are mapping the current shoppingCart to create the products in it. The products then get passed into ItemsInCartCard so they can get their own individual cards which will be rendered inside the shoppingCartCard component  */}
                     {shoppingCart.map((product, index) => {
                         return (
-                            <ItemsInCartCard key={index} product={product} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCart} />
+                            <ItemsInCartCard key={index} product={product} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCart} removeItemFromCartHandler={removeItemFromCartHandler} />
                         )
                     })}
 

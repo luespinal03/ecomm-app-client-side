@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import './ShoppingCart.css'
 
-const ItemsInCartCard = ({ product, quantity, setQuantity, itemToShoppingCart }) => {
+const ItemsInCartCard = ({ product, setQuantity, itemToShoppingCart, removeItemFromCartHandler }) => {
 
     // const [quantity, setQuantity] = useState(1);
     const navigate = useNavigate();
@@ -26,20 +26,18 @@ const ItemsInCartCard = ({ product, quantity, setQuantity, itemToShoppingCart })
 
 
                 <button className='minus-button' onClick={() => {
-                    if (quantity > 1) {
-                        const minusCount = quantity - 1
-                        setQuantity(minusCount)
-                    }
+                    removeItemFromCartHandler(product)
                 }}>-</button>
-
 
 
                 <input className="mx-2 border text-center w-8" type="text" value={product.cartCount} />
 
                 <button className='plus-button' onClick={() => {
                     itemToShoppingCart(product)
+                    // setQuantity(product.cartCount)
                 }}
                 >+</button>
+
             </div>
             <span className="text-center w-1/5 font-semibold text-m">{product.price}</span>
             <span className="text-center w-1/5 font-semibold text-m">{product.price}</span>
