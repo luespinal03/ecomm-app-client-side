@@ -34,7 +34,7 @@ const ItemsInCartCard = ({ product, setQuantity, itemToShoppingCart, removeItemF
 
                 <button className='plus-button' onClick={() => {
                     itemToShoppingCart(product)
-                    // setQuantity(product.cartCount)
+                    setQuantity(product.cartCount)
                 }}
                 >+</button>
 

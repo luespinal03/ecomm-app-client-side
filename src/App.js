@@ -24,6 +24,7 @@ function App() {
   const [itemsList, setItemsList] = useState([]);
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('')
+  const [itemTotals, setItemTotals] = useState(0)
   const [quantity, setQuantity] = useState(1);
   const auth = useAuth();
 
@@ -67,6 +68,18 @@ function App() {
   }, [auth.userToken]);
 
 
+  // this useEffect is watching the shoppingCart so everytime it changes it updates the overall quantity of the items in the cart
+  useEffect(() => {
+
+    const itemsInCartTotals = shoppingCart.reduce((container, item) => {
+      container += item.cartCount
+      return container
+    }, 0)
+
+    setItemTotals(itemsInCartTotals)
+
+  }, [shoppingCart])
+
 
 
   // function below is taking care of adding in items selected from itemsList (itemsList is holding all of our products from our databse) into our shopping cart.
@@ -103,36 +116,19 @@ function App() {
 
 
 
-
   const removeItemFromCartHandler = (product) => {
-    const indexToDelete = shoppingCart.findIndex((productSelected) => {
-      // console.log('product selected' + productSelected.title)
-      // console.log('product' + product.title)
-      return productSelected._id === product._id
-    })
 
-    if (indexToDelete === 1 && product.cartCount > 0) {
-      setShoppingCart([...shoppingCart, { ...product, cartCount: -1 }])
-    }
-    else {
-      const updateCartItem = shoppingCart.map((cartItem) => {
-        if (cartItem._id === product._id && product.cartCount > 0) {
-          cartItem.cartCount--
-          return cartItem
-        } else {
-          return cartItem
-        }
-      })
-      setShoppingCart(updateCartItem)
-    }
+    const updateCartItem = shoppingCart.map((cartItem) => {
+      if (cartItem._id === product._id && product.cartCount > 1) {
+        cartItem.cartCount--
+        return cartItem
+      } else {
+        return cartItem
+      }
+    })
+    setShoppingCart(updateCartItem)
     console.log(shoppingCart)
   }
-
-
-
-
-
-
 
 
   const router = createBrowserRouter([
@@ -160,7 +156,7 @@ function App() {
         },
         {
           path: '/shoppingcart',
-          element: <ShoppingCart shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCartHandler} removeItemFromCartHandler={removeItemFromCartHandler} />
+          element: <ShoppingCart shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCartHandler} removeItemFromCartHandler={removeItemFromCartHandler} itemTotals={itemTotals} />
         },
         {
           path: '/checkout',

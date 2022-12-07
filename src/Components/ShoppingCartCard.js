@@ -3,7 +3,7 @@ import OrderSummary from '../Components/OrderSummary'
 import './ShoppingCartCard.css'
 import ItemsInCartCard from './ItemsInCartCard';
 
-const ShoppingCartCard = ({ shoppingCart, quantity, setQuantity, itemToShoppingCart, removeItemFromCartHandler }) => {
+const ShoppingCartCard = ({ shoppingCart, setQuantity, itemToShoppingCart, removeItemFromCartHandler, itemTotals }) => {
 
     return (
 
@@ -13,7 +13,7 @@ const ShoppingCartCard = ({ shoppingCart, quantity, setQuantity, itemToShoppingC
                 <div className="w-full bg-white px-10 py-10">
                     <div className="flex justify-between border-b pb-8">
                         <h1 className="font-semibold text-2xl"><AiOutlineHome /> Ship To Home</h1>
-                        <h2 className="font-semibold text-2xl">{quantity} Items</h2>
+                        <h2 className="font-semibold text-2xl">{itemTotals} Items</h2>
                     </div>
                     <div className="flex mt-10 mb-5 ml-12">
                         <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
@@ -25,7 +25,7 @@ const ShoppingCartCard = ({ shoppingCart, quantity, setQuantity, itemToShoppingC
                     {/* this is where product gets initialized. Here we are mapping the current shoppingCart to create the products in it. The products then get passed into ItemsInCartCard so they can get their own individual cards which will be rendered inside the shoppingCartCard component  */}
                     {shoppingCart.map((product, index) => {
                         return (
-                            <ItemsInCartCard key={index} product={product} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCart} removeItemFromCartHandler={removeItemFromCartHandler} />
+                            <ItemsInCartCard key={index} product={product} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCart} removeItemFromCartHandler={removeItemFromCartHandler} itemTotals={itemTotals} />
                         )
                     })}
 
