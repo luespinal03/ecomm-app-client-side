@@ -1,18 +1,9 @@
-import React from 'react'
-import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
 import { AiOutlineHome } from 'react-icons/ai'
 import OrderSummary from '../Components/OrderSummary'
 import './ShoppingCartCard.css'
 import ItemsInCartCard from './ItemsInCartCard';
 
 const ShoppingCartCard = ({ shoppingCart, quantity, setQuantity, itemToShoppingCart }) => {
-
-    const navigate = useNavigate();
-
-
-
-
 
     return (
 
@@ -26,109 +17,24 @@ const ShoppingCartCard = ({ shoppingCart, quantity, setQuantity, itemToShoppingC
                     </div>
                     <div className="flex mt-10 mb-5 ml-12">
                         <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
-                        <h3 className="font-semibold text-center text-gray-600 text-sm uppercase w-1/5 text-center">{ }</h3>
-                        <h3 className="font-semibold text-center text-gray-600 text-sm uppercase w-1/5 text-center">Price</h3>
-                        <h3 className="font-semibold text-center text-gray-600 text-sm uppercase w-1/5 text-center">Total</h3>
+                        <h3 className="font-semibold text-center text-gray-600 text-sm uppercase w-1/5">{ }</h3>
+                        <h3 className="font-semibold text-center text-gray-600 text-sm uppercase w-1/5">Price</h3>
+                        <h3 className="font-semibold text-center text-gray-600 text-sm uppercase w-1/5">Total</h3>
                     </div>
 
+                    {/* this is where product gets initialized. Here we are mapping the current shoppingCart to create the products in it. The products then get passed into ItemsInCartCard so they can get their own individual cards which will be rendered inside the shoppingCartCard component  */}
                     {shoppingCart.map((product, index) => {
                         return (
                             <ItemsInCartCard key={index} product={product} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCart} />
                         )
                     })}
 
-                    {/* SECOND ITEM SUBMITTED INTO THE SHOPPING CART */}
-                    {/* <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-                        <div className="flex w-2/5">
-                            <div className="w-20">
-                                <img className="h-24" src="https://drive.google.com/uc?id=10ht6a9IR3K2i1j0rHofp9-Oubl1Chraw" alt="" />
-                            </div>
-                            <div className="flex flex-col justify-between ml-4 flex-grow">
-                                <span className="font-bold text-sm">Second Product selected must go here</span>
-                                <span className="text-red-500 text-xs">Second Product Brand here</span>
-                                <a href="#" className="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
-                            </div>
-                        </div>
-                        <div className="flex justify-center w-1/5">
-                            <svg className="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                            </svg>
-
-                            <input className="mx-2 border text-center w-8" type="text" value="1" />
-
-                            <svg className="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
-                                <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                            </svg>
-                        </div>
-                        <span className="text-center w-1/5 font-semibold text-sm">second prod price</span>
-                        <span className="text-center w-1/5 font-semibold text-sm">second prod price here </span>
-                    </div> */}
-
-
-
-
-                    {/* THIRD ITEM SUBMITTED INTO THE SHOPPING CART */}
-                    {/* <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5 ">
-                        <div className="flex w-2/5">
-                            <div className="w-20">
-                                <img className="h-24" src="https://drive.google.com/uc?id=1vXhvO9HoljNolvAXLwtw_qX3WNZ0m75v" alt="" />
-                            </div>
-                            <div className="flex flex-col justify-between ml-4 flex-grow">
-                                <span className="font-bold text-sm">Third item here</span>
-                                <span className="text-red-500 text-xs">third brand here</span>
-                                <a href="#" className="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
-                            </div>
-                        </div>
-                        <div className="flex justify-center w-1/5">
-                            <svg className="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                            </svg>
-                            <input className="mx-2 border text-center w-8" type="text" value="1" />
-
-                            <svg className="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
-                                <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                            </svg>
-                        </div>
-                        <span className="text-center w-1/5 font-semibold text-sm">Third price here</span>
-                        <span className="text-center w-1/5 font-semibold text-sm">Third price here</span>
-                    </div> */}
-
-
-
-
-
                     <a href="/products" className="flex font-semibold text-indigo-600 text-sm mt-10">
                         <svg className="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" /></svg>
                         Continue Shopping
                     </a>
                 </div>
-
-
                 <OrderSummary />
-                {/* ORDER SUMMARY SECTION */}
-                {/* <div id="summary" className="w-1/4 px-8 py-10">
-                    <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
-                    <div className="flex justify-between mt-10 mb-5">
-                        <span className="font-semibold text-sm uppercase">Items 3</span>
-                        <span className="font-semibold text-sm">590$</span>
-                    </div>
-                    <div>
-                        <label className="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
-                        <select className="block p-2 text-gray-600 w-full text-sm">
-                            <option>Standard shipping - $10.00</option>
-                        </select>
-                    </div>
-                    <div className="py-10">
-                        <label for="promo" className="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
-                        <input type="text" id="promo" placeholder="Enter your code" className="p-2 text-sm w-full" />
-                    </div>
-                    <button className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Apply</button>
-                    <div className="border-t mt-8">
-                        <div className="flex font-semibold justify-between py-6 text-sm uppercase">
-                            <span>Total cost</span>
-                            <span>$600</span>
-                        </div>
-                        <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full" onClick={() => { navigate('/checkout') }}>Checkout</button>
-                    </div>
-                </div> */}
             </div>
         </div>
 
@@ -136,8 +42,3 @@ const ShoppingCartCard = ({ shoppingCart, quantity, setQuantity, itemToShoppingC
 }
 
 export default ShoppingCartCard
-
-
-    // <Card.Title className='product-card-title'>{product.title}</Card.Title>
-    // < Card.Text className = 'product-price' > ${ product.price }</ >
-    //     <Card.Text className='product-features'>${product.features}</Card.Text>

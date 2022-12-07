@@ -21,11 +21,16 @@ const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT
 
 function App() {
   const [shoppingCart, setShoppingCart] = useState([])
-
+  // itemsList is holding all products coming from the fetch out of the database
   const [itemsList, setItemsList] = useState([]);
+  const [message, setMessage] = useState('');
+  const [email, setEmail] = useState('')
+  const [quantity, setQuantity] = useState(1);
+  const auth = useAuth();
+
 
   // itemsList is wherre all the products enter the application from the databate
-  console.log(itemsList)
+  // console.log(itemsList)
 
   useEffect(() => {
     const findProduct = async () => {
@@ -39,9 +44,6 @@ function App() {
   }, [])
 
 
-  const [message, setMessage] = useState('');
-  const [email, setEmail] = useState('')
-  const auth = useAuth();
 
   // When the application is first loading in, react needs to load in the user token from local storage and so we only want to call this fetch function if the user's token is not null. Additionally, when the user is logged out, the token will be null and we want to set the message back to an empty string in this case.
   useEffect(() => {
@@ -68,36 +70,23 @@ function App() {
 
 
 
-
-  // so far got everything added to the shopping cart, havent worked on gettin them displayed just yet. Code below its a function in charge of putting the product that got clicked on in a new object called productTobeAdded which then gets added into ...shoppingCart. The reason why we spread shoppingCart its so we can add to the existing values that are already in there. We created itemsInCart which is w.e its already in the cart plus productTobeAdded. Then we give setShoppingCart the value of itemsInCart
+  // function below is taking care of adding in items selected from itemsList (itemsList is holding all of our products from our databse) into our shopping cart.
   const itemToShoppingCartHandler = (product) => {
-
-    // let productTobeAdded = {
-    //   id: product.id,
-    //   title: product.title,
-    //   console: product.console,
-    //   features: product.features,
-    //   brand: product.brand,
-    //   type: product.type,
-    //   price: product.price,
-    //   genre: product.genre,
-    //   ratings: product.ratings,
-    //   image: product.image
-    // }
-    // const itemsInCart = [...shoppingCart, productTobeAdded]
-    // setShoppingCart(itemsInCart)
-
-    console.log(product)
+    // console.log(product)
     const findingIndex = shoppingCart.findIndex((productSelected) => {
-      console.log(product)
-      console.log(productSelected)
+      // console.log(product)
+      // console.log(productSelected)
+      // return the product that matched ids
       return productSelected._id === product._id
     })
-    console.log(findingIndex)
+    // console.log(findingIndex)
 
+
+    // if the result from findingIndex is -1 (productSelected is not already in the shopping cart) then spread the shopping cart, spread the product, add it into the shopping cart with the count of 1
     if (findingIndex === -1) {
       setShoppingCart([...shoppingCart, { ...product, cartCount: 1 }]);
     }
+    // otherwise, map shoppingCart and cartItem id and product id match then add to its current count and return item
     else {
       const updateCartItem = shoppingCart.map((cartItem) => {
         if (cartItem._id === product._id) { //if cartItem is the same as item.id
@@ -114,9 +103,16 @@ function App() {
   // console.log(shoppingCart)
 
 
-  const [quantity, setQuantity] = useState(1);
 
 
+  const removeItemFromCartHandler = (product) => {
+    const findingIndex = shoppingCart.findIndex((productSelected) => {
+      // console.log(product)
+      // console.log(productSelected)
+      // return the product that matched ids
+      return productSelected._id === product._id
+    })
+  }
 
 
 

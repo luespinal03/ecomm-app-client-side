@@ -23,12 +23,16 @@ const ItemsInCartCard = ({ product, quantity, setQuantity, itemToShoppingCart })
             {console.log(product.cartCount)}
             <div className="flex justify-center w-1/5">
 
+
+
                 <button className='minus-button' onClick={() => {
                     if (quantity > 1) {
                         const minusCount = quantity - 1
                         setQuantity(minusCount)
                     }
                 }}>-</button>
+
+
 
                 <input className="mx-2 border text-center w-8" type="text" value={product.cartCount} />
 

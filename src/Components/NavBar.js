@@ -36,7 +36,7 @@ const Navbar = ({ email }) => {
                 </div>
 
                 <div className='hidden md:flex pr-4 mb-4'>
-                    <Link to='/shoppingcart' className='mr-10 mt-2'><AiOutlineShoppingCart size={35} />
+                    <Link to='/shoppingcart' className='mr-10 mt-2'><AiOutlineShoppingCart size={33} />
                     </Link>
 
                     <div >
