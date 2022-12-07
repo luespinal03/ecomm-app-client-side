@@ -5,7 +5,7 @@ import Footer from './Footer'
 // import './ShoppingCart.css'
 
 
-const ShoppingCart = ({ shoppingCart, quantity, setQuantity, itemToShoppingCart, removeItemFromCartHandler, itemTotals, priceTotals }) => {
+const ShoppingCart = ({ shoppingCart, quantity, setQuantity, itemToShoppingCart, removeItemFromCartHandler, itemTotals, priceTotals, removeItemHandler }) => {
     if (shoppingCart.length === 0) {
         return (<div>
             <div>
@@ -22,13 +22,7 @@ const ShoppingCart = ({ shoppingCart, quantity, setQuantity, itemToShoppingCart,
     else if (shoppingCart.length > 0) {
         return <div>
             <div>
-                {/* <h1 className='my-10'>ShoppingCart</h1> */}
-                {/* {shoppingCart.map((product, index) => {
-                    return ( */}
-                <ShoppingCartCard shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCart} removeItemFromCartHandler={removeItemFromCartHandler} itemTotals={itemTotals} priceTotals={priceTotals} />
-                {/* )
-                })} */}
-                {/* <OrderSummary /> */}
+                <ShoppingCartCard shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCart} removeItemFromCartHandler={removeItemFromCartHandler} itemTotals={itemTotals} priceTotals={priceTotals} removeItemHandler={removeItemHandler} />
             </div>
 
             <div className='mt-[38.9rem] w-screen'>

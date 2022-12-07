@@ -37,7 +37,7 @@ const LoginPage = () => {
                         <br />
                         <div className='bg-slate-100 p-10 rounded-xl mt-14'>
                             <button onClick={loginHandler} className='px-8 py-3 m-2'>Sign in</button>
-                            <button className='px-8 py-3' onClick={() => { navigate('/registration') }}>Sign Up</button>
+                            <button className='px-8 py-3' onClick={() => { navigate('/signup') }}>Sign Up</button>
                             <h3>{loginMessage}</h3>
                         </div>
                     </div>

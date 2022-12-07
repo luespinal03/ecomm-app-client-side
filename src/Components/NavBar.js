@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { animateScroll as scroll, } from 'react-scroll'
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Hooks/Auth";
 import { Link } from 'react-router-dom';

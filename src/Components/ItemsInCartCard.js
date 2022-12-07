@@ -1,9 +1,8 @@
 import React from 'react'
-import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import './ShoppingCart.css'
 
-const ItemsInCartCard = ({ product, itemToShoppingCart, removeItemFromCartHandler }) => {
+
+const ItemsInCartCard = ({ product, itemToShoppingCart, removeItemFromCartHandler, removeItemHandler }) => {
 
     // const [quantity, setQuantity] = useState(1);
     const navigate = useNavigate();
@@ -17,7 +16,7 @@ const ItemsInCartCard = ({ product, itemToShoppingCart, removeItemFromCartHandle
                 <div className="flex flex-col justify-between ml-4 flex-grow">
                     <span className="font-bold text-m">{product.title}</span>
                     <span className="text-red-500 text-m">{product.brand}</span>
-                    <a href="#" className="font-semibold hover:text-red-500 text-gray-500 text-sm">Remove</a>
+                    <a href="#" className="border-hidden font-semibold hover:text-red-500 text-gray-500 text-sm " onClick={() => { removeItemHandler(product) }}>Remove</a>
                 </div>
             </div>
             {/* {console.log(product.cartCount)} */}
@@ -40,7 +39,7 @@ const ItemsInCartCard = ({ product, itemToShoppingCart, removeItemFromCartHandle
 
             </div>
             <span className="text-center w-1/5 font-semibold text-m">{product.price}</span>
-            <span className="text-center w-1/5 font-semibold text-m">{product.cartCount * product.price}</span>
+            <span className="text-center w-1/5 font-semibold text-m">{(product.cartCount * product.price).toFixed(2)}</span>
         </div>
     )
 }

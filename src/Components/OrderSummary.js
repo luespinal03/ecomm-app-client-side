@@ -13,7 +13,7 @@ const OrderSummary = ({ itemTotals, priceTotals }) => {
             <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
             <div className="flex justify-between mt-10 mb-5">
                 <span className="font-semibold text-sm uppercase">Items {itemTotals}</span>
-                <span className="font-semibold text-sm">{priceTotals}</span>
+                <span className="font-semibold text-sm">{priceTotals.toFixed(2)}</span>
             </div>
             <div>
                 <label className="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
@@ -31,7 +31,7 @@ const OrderSummary = ({ itemTotals, priceTotals }) => {
             <div className="">
                 <div className="flex font-semibold justify-between py-4 text-sm uppercase">
                     <span>Total cost</span>
-                    <span>$600</span>
+                    <span>{priceTotals.toFixed(2)}</span>
                 </div>
                 <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 px-5 py-4 text-sm text-white uppercase w-full" onClick={() => { navigate('/checkout') }}>Checkout</button>
             </div>

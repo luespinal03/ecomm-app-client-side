@@ -12,6 +12,7 @@ import About from './Components/About'
 import Support from './Components/Support'
 import { useAuth } from './Hooks/Auth';
 import ErrorPage from './Pages/ErrorPage'
+import SignUpPage from './Pages/SignUpPage';
 
 
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT
@@ -69,8 +70,9 @@ function App() {
   }, [auth.userToken]);
 
 
-  // this useEffect is watching the shoppingCart so everytime it changes it updates the overall quantity of the items in the cart
+  // this useEffect is watching the shoppingCart so everytime it changes it updates the overall quantity of the items in the cart and the prices accordingly
   useEffect(() => {
+
     const itemsInCartTotals = shoppingCart.reduce((container, item) => {
       container += item.cartCount
       return container
@@ -79,7 +81,7 @@ function App() {
 
 
     const itemsInCartPriceTotals = shoppingCart.reduce((container, item) => {
-      const allTotals = item.price * item.cartCount
+      const allTotals = +(item.price * item.cartCount).toFixed(2)
       container += allTotals
 
       return container
@@ -107,8 +109,6 @@ function App() {
       return productSelected._id === product._id
     })
     // console.log(findingIndex)
-
-
     // if the result from findingIndex is -1 (productSelected is not already in the shopping cart) then spread the shopping cart, spread the product, add it into the shopping cart with the count of 1
     if (findingIndex === -1) {
       setShoppingCart([...shoppingCart, { ...product, cartCount: 1 }]);
@@ -145,6 +145,17 @@ function App() {
   }
 
 
+  // function is in charge of the remove button on every itemCard in the shoppping cart
+  const removeItemHandler = (product) => {
+    const filteredItem = shoppingCart.filter((cartItem) => {
+      return product._id !== cartItem._id
+    })
+    console.log(filteredItem)
+    setShoppingCart(filteredItem)
+  }
+
+
+
   const router = createBrowserRouter([
     {
       path: '/',
@@ -161,8 +172,8 @@ function App() {
           element: <LoginPage />
         },
         {
-          path: '/registration',
-          element: <RegistrationPage />
+          path: '/signup',
+          element: <SignUpPage />
         },
         {
           path: '/products',
@@ -170,7 +181,7 @@ function App() {
         },
         {
           path: '/shoppingcart',
-          element: <ShoppingCart shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCartHandler} removeItemFromCartHandler={removeItemFromCartHandler} itemTotals={itemTotals} priceTotals={priceTotals} />
+          element: <ShoppingCart shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCartHandler} removeItemFromCartHandler={removeItemFromCartHandler} itemTotals={itemTotals} priceTotals={priceTotals} removeItemHandler={removeItemHandler} />
         },
         {
           path: '/checkout',

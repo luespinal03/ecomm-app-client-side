@@ -3,13 +3,12 @@ import OrderSummary from '../Components/OrderSummary'
 import './ShoppingCartCard.css'
 import ItemsInCartCard from './ItemsInCartCard';
 
-const ShoppingCartCard = ({ shoppingCart, itemToShoppingCart, removeItemFromCartHandler, itemTotals, priceTotals }) => {
+const ShoppingCartCard = ({ shoppingCart, itemToShoppingCart, removeItemFromCartHandler, itemTotals, priceTotals, removeItemHandler }) => {
 
     return (
 
         <div className="container  mt-40 flex flex-col bg-gray-100">
             <div className="flex shadow-md my-10">
-                {/* remove w-full if need to go back to original card */}
                 <div className="w-full bg-white px-10 py-10">
                     <div className="flex justify-between border-b pb-8">
                         <h1 className="font-semibold text-2xl"><AiOutlineHome /> Ship To Home</h1>
@@ -25,7 +24,7 @@ const ShoppingCartCard = ({ shoppingCart, itemToShoppingCart, removeItemFromCart
                     {/* this is where product gets initialized. Here we are mapping the current shoppingCart to create the products in it. The products then get passed into ItemsInCartCard so they can get their own individual cards which will be rendered inside the shoppingCartCard component  */}
                     {shoppingCart.map((product, index) => {
                         return (
-                            <ItemsInCartCard key={index} product={product} itemToShoppingCart={itemToShoppingCart} removeItemFromCartHandler={removeItemFromCartHandler} />
+                            <ItemsInCartCard key={index} product={product} itemToShoppingCart={itemToShoppingCart} removeItemFromCartHandler={removeItemFromCartHandler} removeItemHandler={removeItemHandler} />
                         )
                     })}
 

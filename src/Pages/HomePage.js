@@ -3,10 +3,6 @@ import './HomePage.css'
 import Footer from '../Components/Footer';
 
 
-
-
-
-
 const HomePage = ({ message }) => {
 
     return (
