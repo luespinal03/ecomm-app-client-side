@@ -9,7 +9,6 @@ const GlobalLayout = ({ email }) => {
             <NavBar email={email} />
             <Outlet />
             {/* <Footer /> */}
-
         </div>
     )
 }

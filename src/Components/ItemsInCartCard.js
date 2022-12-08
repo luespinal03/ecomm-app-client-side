@@ -38,8 +38,8 @@ const ItemsInCartCard = ({ product, itemToShoppingCart, removeItemFromCartHandle
                 >+</button>
 
             </div>
-            <span className="text-center w-1/5 font-semibold text-m">{product.price}</span>
-            <span className="text-center w-1/5 font-semibold text-m">{(product.cartCount * product.price).toFixed(2)}</span>
+            <span className="text-center w-1/5 font-semibold text-m">{`$${product.price}`}</span>
+            <span className="text-center w-1/5 font-semibold text-m">{`$${(product.cartCount * product.price).toFixed(2)}`}</span>
         </div>
     )
 }

@@ -1,0 +1,12 @@
+.hr-line {
+  border-bottom: 1px solid rgb(213, 213, 213);
+  line-height: 10px;
+  text-align: center;
+}
+
+.hr-span {
+  background: #fff;
+  position: relative;
+  bottom: -8px; /* half of line-height */
+  padding: 0 15px;
+}

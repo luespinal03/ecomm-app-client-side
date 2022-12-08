@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react'
 import GlobalLayout from './Layouts/GlobalLayout';
 import HomePage from './Pages/HomePage';
 import LoginPage from './Pages/LoginPage';
-import RegistrationPage from './Pages/SignUpPage';
-import './App.css';
+import CheckOutOptions from './Components/CheckOutOptions';
 import ProductsPage from './Pages/ProductsPage';
 import ShoppingCart from './Components/ShoppingCart';
 import CheckOut from './Components/CheckOut';
@@ -13,6 +12,8 @@ import Support from './Components/Support'
 import { useAuth } from './Hooks/Auth';
 import ErrorPage from './Pages/ErrorPage'
 import SignUpPage from './Pages/SignUpPage';
+import PaymentInfo from './Components/PaymentInfo';
+import './App.css';
 
 
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT
@@ -92,13 +93,6 @@ function App() {
 
 
 
-
-
-
-
-
-
-
   // function below is taking care of adding in items selected from itemsList (itemsList is holding all of our products from our databse) into our shopping cart.
   const itemToShoppingCartHandler = (product) => {
     // console.log(product)
@@ -131,6 +125,7 @@ function App() {
 
 
 
+  // this function is for the minus sign inside of every card count, made so user can decrease the quantity of their products one by one
   const removeItemFromCartHandler = (product) => {
     const updateCartItem = shoppingCart.map((cartItem) => {
       if (cartItem._id === product._id && product.cartCount > 1) {
@@ -145,7 +140,7 @@ function App() {
   }
 
 
-  // function is in charge of the remove button on every itemCard in the shoppping cart
+  // function is in charge of the remove button on every itemCard in the shoppping cart its removing the entire card
   const removeItemHandler = (product) => {
     const filteredItem = shoppingCart.filter((cartItem) => {
       return product._id !== cartItem._id
@@ -185,7 +180,7 @@ function App() {
         },
         {
           path: '/checkout',
-          element: <CheckOut />
+          element: <CheckOut itemTotals={itemTotals} priceTotals={priceTotals} />
         },
         {
           path: '/about',
@@ -194,6 +189,14 @@ function App() {
         {
           path: '/support',
           element: <Support />
+        },
+        {
+          path: '/checkoutoptions',
+          element: <CheckOutOptions />
+        },
+        {
+          path: '/payment',
+          element: <PaymentInfo />
         },
       ]
     }
