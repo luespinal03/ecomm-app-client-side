@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Subtotal = ({ itemTotals, priceTotals }) => {
     const navigate = useNavigate
     return (
-        <div id="summary" className="w-2/4 px-8 py-10 bg-gray-100">
+        <div id="summary" className=" w-2/4 px-8 py-10 bg-gray-100">
             <h1 className="font-semibold text-2xl border-b pb-8">Subtotal</h1>
             <div className="flex justify-between mt-10 mb-5">
                 <span className="font-semibold text-m uppercase">Items {itemTotals}</span>
