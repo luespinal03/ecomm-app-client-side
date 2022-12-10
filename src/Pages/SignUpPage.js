@@ -60,7 +60,7 @@ const SignUpPage = () => {
                         <p className='text-[20px] ml-[20px] text-neutral-500'>Create your GAMESHAK account to start earning points and rewards today!</p>
                         <p className='text-red-600 text-lg'>{message}</p>
 
-                        <input type='text' placeholder='First Name' className='border-2 border-gray-300 ml-[3px] mr-[50px] text-2xl h-[50px] w-[359px] ' onChange={(e) => { setFirstName(e.target.value) }}></input>
+                        <input type='text' placeholder='First Name' className='border-2 border-gray-300 ml-[3px] text-2xl h-[50px] w-[359px] ' onChange={(e) => { setFirstName(e.target.value) }}></input>
                         <p className='text-red-600 text-lg mr-[400px]'>{firstNameError}</p>
 
 

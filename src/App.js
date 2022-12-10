@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import GlobalLayout from './Layouts/GlobalLayout';
 import HomePage from './Pages/HomePage';
-import LoginPage from './Pages/LoginPage';
+import SignInPage from './Pages/SignInPage';
 import CheckOutOptions from './Components/CheckOutOptions';
 import ProductsPage from './Pages/ProductsPage';
 import ShoppingCart from './Components/ShoppingCart';
@@ -165,7 +165,7 @@ function App() {
         },
         {
           path: '/login',
-          element: <LoginPage />
+          element: <SignInPage />
         },
         {
           path: '/signup',

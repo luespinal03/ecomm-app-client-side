@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Footer from '../Components/Footer'
 import './LoginPage.css'
 
-const LoginPage = () => {
+const SigninPage = () => {
     const [message, setMessage] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
@@ -76,4 +76,4 @@ const LoginPage = () => {
     )
 }
 
-export default LoginPage
+export default SigninPage
