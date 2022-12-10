@@ -14,10 +14,6 @@ const CheckOut = ({ itemTotals, priceTotals }) => {
     const [stateError, setStateError] = useState('');
 
 
-
-
-
-
     const [firstName, setFirstName] = useState('');
     const [message, setMessage] = useState('');
     const [lastName, setLastName] = useState('');
@@ -30,29 +26,17 @@ const CheckOut = ({ itemTotals, priceTotals }) => {
     const [state, setState] = useState('');
     const [shippingInfoFilled, setShippingInfoFilled] = useState(false);
 
-    // console.log(firstName)
-    // console.log(lastName)
-    // console.log(streetAddress)
-    // console.log(optionalAddy)
-    // console.log(zipCode)
-    // console.log(city)
-    // console.log(state)
     const paymentFunctionHandler = () => {
-        if (firstName.length < 1) setFirstNameError('Please fill in First Name');
-        if (lastName.length < 1) setLastNameError('Please fill in Last Name');
-        if (streetAddress.length < 1) setStreetAddressError('Please fill in Street Address');
-        if (zipCode.length < 1) setZipCodeError('Please fill in Zip Code');
-        if (city.length < 1) setCityError('Please fill in City');
-        if (state.length < 1) setStateError('Please choose a State');
+        if (firstName.length < 1) setFirstNameError('First Name is required.');
+        if (lastName.length < 1) setLastNameError('Last Name is required.');
+        if (streetAddress.length < 1) setStreetAddressError('Please enter a valid Street Address.');
+        if (zipCode.length < 1) setZipCodeError('Please enter a valiud Zip Code.');
+        if (city.length < 1) setCityError('Please enter a valid City.');
+        if (state.length < 1) setStateError('Please enter a valid State.');
+        if (firstName.length > 0 && lastName.length > 0 && streetAddress.length > 0 && zipCode.length > 0 && city.length > 0 && state.length > 0) setShippingInfoFilled(true)
 
-
-
-
-        if (firstName.length > 0 && lastName.length > 0 && streetAddress.length > 0 && zipCode.length > 0 && city.length > 0 && state.length > 0) {
-            setShippingInfoFilled(true)
-        }
         else {
-            setMessage('Please fill up required information')
+            setMessage('Please fix errors below')
         }
     }
 
@@ -133,7 +117,6 @@ const CheckOut = ({ itemTotals, priceTotals }) => {
                         <h1 className="font-semibold text-2xl">Shipping</h1>
                         <p className='text-red-600 text-lg'>{message}</p>
                     </div>
-
 
                     <input type='text' placeholder='First Name' className='border-2 border-gray-300 ml-[3px] mr-[50px] text-2xl h-[50px] w-[359px] ' onChange={(e) => { setFirstName(e.target.value) }}></input>
                     <p className='text-red-600 text-lg mr-[400px]'>{firstNameError}</p>

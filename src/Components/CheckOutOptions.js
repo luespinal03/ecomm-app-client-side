@@ -4,32 +4,41 @@ import { useNavigate } from "react-router-dom";
 import './CheckOutOptions.css'
 
 const CheckOutOptions = () => {
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loginMessage, setLoginMessage] = useState('');
-    const [error, setError] = useState(false);
+    // const [error, setError] = useState(false);
     const [message, setMessage] = useState('')
     const auth = useAuth();
     const navigate = useNavigate();
 
+
+
     const loginHandler = async () => {
-
-
+        const loginResult = await auth.login(email, password);
         if (email.length > 0 && password.length > 0) {
-            const loginResult = await auth.login(email, password);
+
             if (loginResult.success) {
-                setError(false)
+                // setError(false)
                 navigate("/shoppingcart");
             }
             if (!loginResult.success) {
-                setError(true)
+                // setError(true)
                 setLoginMessage(loginResult.message);
             }
-        } else {
+        }
+        if (email.length < 1) {
+            setEmailError('Please enter a valid Email address.');
+        }
+        if (password.length < 1) {
+            setPasswordError('Please enter a valid Password.');
+        }
+        if (email.length < 1 && password.length < 1) {
             setMessage('Email or password cannot be empty')
-            setError(true)
-            console.log(message)
+            // setError(true)
         }
     }
 
@@ -37,9 +46,12 @@ const CheckOutOptions = () => {
     // this is watching email and password, if hteir lenghts are longer than 0 then error message goes away
     useEffect(() => {
         if (email.length > 0 && password.length > 0) {
-            setError(false)
+            // setError(false)
             setMessage('')
         }
+        if (email.length > 0) setEmailError('');
+        if (password.length > 0) setPasswordError('');
+
     }, [email, password])
 
 
@@ -54,11 +66,16 @@ const CheckOutOptions = () => {
                         <p>Sign in to your GAMESHAK account</p>
                     </div>
                     {/* if error is true then show message */}
-                    {error && <p className='text-red-600 text-lg'>{message}</p>}
-                    <input type="email" value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder='Email' className='border-2 border-gray-300 mt-10 mr-[20px] text-2xl h-[50px] w-[359px]'></input>
+                    <p className='text-red-600 text-lg'>{message}</p>
+
+                    <input type="email" onChange={(e) => { setEmail(e.target.value) }} placeholder='Email' className='border-2 border-gray-300 mt-10 mr-[20px] text-2xl h-[50px] w-[359px]'></input>
+                    <p className='text-red-600 text-lg mr-[400px]'>{emailError}</p>
+
                     <br />
                     <br />
-                    <input type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} placeholder='Password' className='border-2 border-gray-300 text-2xl h-[50px] mr-[20px] w-[359px]'></input>
+                    <input type="password" onChange={(e) => { setPassword(e.target.value) }} placeholder='Password' className='border-2 border-gray-300 text-2xl h-[50px] mr-[20px] w-[359px]'></input>
+                    <p className='text-red-600 text-lg mr-[400px]'>{passwordError}</p>
+
                     <br />
                     <a className='text-[15px] mr-[280px] mt-[5px]'>Forgot password?</a>
                     <br />

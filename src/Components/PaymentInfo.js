@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 
 
@@ -7,7 +7,7 @@ const PaymentInfo = () => {
 
     const [message, setMessage] = useState('');
     const [creditCardError, setCreditCardError] = useState('');
-    const [expirationDateError, setExpirationdateError] = useState('');
+    const [expirationDateError, setExpirationError] = useState('');
     const [cWError, setCwError] = useState('');
 
     const [creditCardNumbers, setCreditCardNumbers] = useState('');
@@ -15,19 +15,13 @@ const PaymentInfo = () => {
     const [cW, setCw] = useState('');
 
 
-
     const [paymentInformationFilled, setPaymentInformationFilled] = useState(false);
     const navigate = useNavigate();
 
 
-    // const ReviewPageHandler = () {
-
-    // }
-
-
     const paymentFunctionHandler = () => {
         if (creditCardNumbers.length < 1) setCreditCardError('Please fill in Card Number');
-        if (expirationDate.length < 1) setExpirationdateError('Please fill in Exp. Date');
+        if (expirationDate.length < 1) setExpirationError('Please fill in Exp. Date');
         if (cW.length < 1) setCwError('Please fill in CW');
 
         if (creditCardNumbers.length > 0 && expirationDate.length > 0 && cW.length > 0) {
@@ -38,6 +32,14 @@ const PaymentInfo = () => {
             setMessage('Please fill up required information')
         }
     }
+
+
+    useEffect(() => {
+        if (creditCardNumbers.length > 0) setCreditCardError('');
+        if (expirationDate.length > 0) setExpirationError('');
+        if (cW.length > 0) setCwError('');
+        if (creditCardNumbers.length > 0 && expirationDate.length > 0 && cW.length > 0) setMessage('');
+    }, [creditCardNumbers, expirationDate, cW])
 
 
 
