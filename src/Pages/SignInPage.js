@@ -19,8 +19,8 @@ const SigninPage = () => {
     const loginHandler = async () => {
         const loginResult = await auth.login(email, password);
         if (loginResult.success && email.length > 0 && password.length > 0) navigate("/");
-        if (email.length < 1) setEmailError('Please enter a valid email address.');
-        if (password.length < 1) setPasswordError('Please enter a valid password.');
+        if (email.length < 1) setEmailError('Please enter a valid Email address.');
+        if (password.length < 1) setPasswordError('Please enter a valid Password.');
         if (!loginResult.success) setLoginMessage(loginResult.message);
 
         else setMessage('Please fix errors below.')
@@ -54,7 +54,7 @@ const SigninPage = () => {
                         <p className='text-red-600 text-lg mr-[400px]'>{passwordError}</p>
 
                         <br />
-                        <a className='text-[15px] mr-[280px] mt-[5px]'>Forgot password?</a>
+                        <a className='text-[15px] mr-[280px] mt-[5px]' href=''>Forgot password?</a>
                         <div className='bg-slate-100 p-10 rounded-xl mt-14'>
                             <input type='checkbox' className='h-[20px] w-[20px] mt-[20px]'></input>
                             <label className='text-[25px] ml-[20px] text-neutral-500'>Keep me signed in</label>

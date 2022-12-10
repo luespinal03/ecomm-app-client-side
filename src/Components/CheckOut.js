@@ -25,20 +25,7 @@ const CheckOut = ({ itemTotals, priceTotals }) => {
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [shippingInfoFilled, setShippingInfoFilled] = useState(false);
-
-    const paymentFunctionHandler = () => {
-        if (firstName.length < 1) setFirstNameError('First Name is required.');
-        if (lastName.length < 1) setLastNameError('Last Name is required.');
-        if (streetAddress.length < 1) setStreetAddressError('Please enter a valid Street Address.');
-        if (zipCode.length < 1) setZipCodeError('Please enter a valiud Zip Code.');
-        if (city.length < 1) setCityError('Please enter a valid City.');
-        if (state.length < 1) setStateError('Please enter a valid State.');
-        if (firstName.length > 0 && lastName.length > 0 && streetAddress.length > 0 && zipCode.length > 0 && city.length > 0 && state.length > 0) setShippingInfoFilled(true)
-
-        else {
-            setMessage('Please fix errors below')
-        }
-    }
+    const [disabled, setDisabled] = useState(true);
 
 
 
@@ -49,8 +36,32 @@ const CheckOut = ({ itemTotals, priceTotals }) => {
         if (zipCode.length > 0) setZipCodeError('')
         if (city.length > 0) setCityError('')
         if (state.length > 0) setStateError('')
+        if (firstName.length > 0 && lastName.length > 0 && streetAddress.length > 0 && zipCode.length > 0 && city.length > 0 && state.length > 0) setMessage('')
 
-    }, [firstName, lastName, streetAddress, zipCode, city, state])
+    }, [firstName, lastName, streetAddress, zipCode, city, state]);
+
+
+
+
+
+    const paymentFunctionHandler = () => {
+        if (firstName.length < 1) setFirstNameError('First Name is required.');
+        if (lastName.length < 1) setLastNameError('Last Name is required.');
+        if (streetAddress.length < 1) setStreetAddressError('Please enter a valid Street Address.');
+        if (zipCode.length < 1) setZipCodeError('Please enter a valiud Zip Code.');
+        if (city.length < 1) setCityError('Please enter a valid City.');
+        if (state.length < 1) setStateError('Please enter a valid State.');
+
+        if (firstName.length > 0 && lastName.length > 0 && streetAddress.length > 0 && zipCode.length > 0 && city.length > 0 && state.length > 0) {
+            setShippingInfoFilled(true)
+            // setDisabled(false)
+        }
+
+        else {
+            setMessage('Please fix errors below')
+        }
+    }
+
 
 
 
@@ -151,10 +162,11 @@ const CheckOut = ({ itemTotals, priceTotals }) => {
                     <label className='text-[20px] mr-[560px] text-black'>Use as billing address</label>
                     <button className="bg-red-500 hover:bg-red-600 px-7 py-2 text-lg text-white uppercase w-[250px] ml-[500px] mt-[20px]" onClick={() => { paymentFunctionHandler() }}>save & continue</button>
                 </div>
-                <Subtotal itemTotals={itemTotals} priceTotals={priceTotals} />
+                <Subtotal itemTotals={itemTotals} priceTotals={priceTotals} disabled={disabled} />
             </div>
+            {/* render PaymentInfo only if shippingInfoFilled is true */}
             {shippingInfoFilled && <div>
-                <PaymentInfo />
+                <PaymentInfo setDisabled={setDisabled} />
             </div>}
 
         </div>

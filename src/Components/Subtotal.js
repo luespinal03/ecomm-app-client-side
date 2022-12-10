@@ -1,8 +1,10 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 
-const Subtotal = ({ itemTotals, priceTotals }) => {
-    const navigate = useNavigate
+const Subtotal = ({ itemTotals, priceTotals, disabled }) => {
+    const notDisabledClass = 'bg-red-500 hover:bg-red-600 px-7 py-2 text-lg text-white uppercase w-full'
+    const disabledClass = 'bg-gray-600 hover:bg-gray-600 hover:cursor-not-allowed  px-7 py-2 text-lg text-white uppercase w-full'
+    const navigate = useNavigate()
     return (
         <div id="summary" className=" w-2/4 px-8 py-10 bg-gray-100">
             <h1 className="font-semibold text-2xl border-b pb-8">Subtotal</h1>
@@ -27,8 +29,10 @@ const Subtotal = ({ itemTotals, priceTotals }) => {
                 <div className="flex font-semibold justify-between py-4 text-lg uppercase">
                     <span>Total cost</span>
                     <span>{`$${priceTotals.toFixed(2)}`}</span>
+
+                    {/* "bg-red-500 hover:bg-red-600 px-7 py-2 text-lg text-white uppercase w-full"  */}
                 </div>
-                <button className="bg-red-500 hover:bg-red-600 px-7 py-2 text-lg text-white uppercase w-full" onClick={() => { navigate('/checkout') }}>Place Order  {`$${priceTotals.toFixed(2)}`}</button>
+                <button className={`${disabled ? disabledClass : notDisabledClass}`} disabled={disabled} onClick={() => { navigate('/revieworderpage') }}>Place Order  {`$${priceTotals.toFixed(2)}`}</button>
             </div>
         </div>
     )
