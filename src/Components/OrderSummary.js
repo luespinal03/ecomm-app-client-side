@@ -1,14 +1,23 @@
 import React from 'react'
+import { useAuth } from "../Hooks/Auth";
 import './OrderSummary.css'
 import { useNavigate } from "react-router-dom";
 
 
 
 const OrderSummary = ({ itemTotals, priceTotals }) => {
+    const auth = useAuth()
     const navigate = useNavigate();
+
+
+    const routeOptionHandler = () => {
+
+        /*auth.userEmail !== null && */ auth.userEmail.length > 0 ? navigate('/checkout') : navigate('/checkoutoptions')
+    }
+
+
+
     return (
-
-
         <div id="summary" className="w-1/4 px-8 py-10 bg-gray-100 w-50">
             <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
             <div className="flex justify-between mt-10 mb-5">
@@ -33,7 +42,7 @@ const OrderSummary = ({ itemTotals, priceTotals }) => {
                     <span>Total cost</span>
                     <span>{`$${priceTotals.toFixed(2)}`}</span>
                 </div>
-                <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 px-5 py-4 text-sm text-white uppercase w-full" onClick={() => { navigate('/checkoutoptions') }}>Proceed to Checkout</button>
+                <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 px-5 py-4 text-sm text-white uppercase w-full" onClick={() => { routeOptionHandler() }}>Proceed to Checkout</button>
             </div>
         </div>
 

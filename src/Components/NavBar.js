@@ -30,7 +30,7 @@ const Navbar = ({ email }) => {
                     </ul>
                 </div>
 
-                <div className='ml-auto mr-5'> {auth.userEmail !== null && auth.userEmail.length > 0 ? (<h4>Welcome: {email}</h4>) : (<div />)}
+                <div className='ml-auto mr-5'> { /* auth.userEmail !== null && */ auth.userEmail.length > 0 ? (<h4>Welcome: {email}</h4>) : (<div />)}
 
                 </div>
 
