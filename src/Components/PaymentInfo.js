@@ -24,14 +24,14 @@ const PaymentInfo = ({ setDisabled }) => {
         if (expirationDate.length < 1) setExpirationError('Please fill in Exp. Date');
         if (cW.length < 1) setCwError('Please fill in CW');
 
-        if (creditCardNumbers.length < 1 && expirationDate.length < 1 && cW.length < 1) {
-            setMessage('Please fill up required information')
-            setDisabled(false)
-
-        }
+        // if (creditCardNumbers.length < 1 && expirationDate.length < 1 && cW.length < 1) {
+        //     setMessage('Please fill up required information')
+        //     setDisabled(true)
+        // }
 
         if (creditCardNumbers.length > 0 && expirationDate.length > 0 && cW.length > 0) {
             setPaymentInformationFilled(true)
+            setDisabled(false)
 
             // navigate('/revieworderpage')
         }
@@ -45,9 +45,9 @@ const PaymentInfo = ({ setDisabled }) => {
         if (creditCardNumbers.length > 0 && expirationDate.length > 0 && cW.length > 0) {
             setMessage('')
             setDisabled(false)
-
-
         }
+
+        if (creditCardNumbers.length < 1 || expirationDate.length < 1 || cW.length < 1) setDisabled(true)
     }, [creditCardNumbers, expirationDate, cW])
 
 

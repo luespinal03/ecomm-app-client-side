@@ -26,6 +26,7 @@ const CheckOut = ({ itemTotals, priceTotals }) => {
     const [state, setState] = useState('');
     const [shippingInfoFilled, setShippingInfoFilled] = useState(false);
     const [disabled, setDisabled] = useState(true);
+    const [isRendered, setIsRendered] = useState(false);
 
 
 
@@ -54,6 +55,7 @@ const CheckOut = ({ itemTotals, priceTotals }) => {
 
         if (firstName.length > 0 && lastName.length > 0 && streetAddress.length > 0 && zipCode.length > 0 && city.length > 0 && state.length > 0) {
             setShippingInfoFilled(true)
+            setIsRendered(true)
             // setDisabled(false)
         }
 
@@ -160,7 +162,7 @@ const CheckOut = ({ itemTotals, priceTotals }) => {
                     </div>
                     <input type='checkbox' className='h-[17px] w-[17px] mt-[15px] mr-[5px]'></input>
                     <label className='text-[20px] mr-[560px] text-black'>Use as billing address</label>
-                    <button className="bg-red-500 hover:bg-red-600 px-7 py-2 text-lg text-white uppercase w-[250px] ml-[500px] mt-[20px]" onClick={() => { paymentFunctionHandler() }}>save & continue</button>
+                    {isRendered ? <></> : <button className="bg-red-500 hover:bg-red-600 px-7 py-2 text-lg text-white uppercase w-[250px] ml-[500px] mt-[20px]" onClick={() => { paymentFunctionHandler() }}>save & continue</button>}
                 </div>
                 <Subtotal itemTotals={itemTotals} priceTotals={priceTotals} disabled={disabled} />
             </div>
