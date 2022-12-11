@@ -8,7 +8,7 @@ import ProductsPage from './Pages/ProductsPage';
 import ShoppingCart from './Components/ShoppingCart';
 import CheckOut from './Components/CheckOut';
 import About from './Components/About'
-import ReviewOrderPage from './Components/ReviewOrderPage';
+import ProcessedOrderPage from './Components/ProcessedOrderPage';
 import Support from './Components/Support'
 import { useAuth } from './Hooks/Auth';
 import ErrorPage from './Pages/ErrorPage'
@@ -200,8 +200,8 @@ function App() {
           element: <PaymentInfo />
         },
         {
-          path: '/revieworderpage',
-          element: <ReviewOrderPage />
+          path: '/processedorderpage',
+          element: <ProcessedOrderPage />
         },
       ]
     }
