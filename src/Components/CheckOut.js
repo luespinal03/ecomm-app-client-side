@@ -5,7 +5,7 @@ import PaymentInfo from './PaymentInfo';
 
 
 
-const CheckOut = ({ itemTotals, priceTotals }) => {
+const CheckOut = ({ itemTotals, priceTotals, setRecentlyProcessedOrder, shoppingCart }) => {
     const [firstNameError, setFirstNameError] = useState('');
     const [lastNameError, setLastNameError] = useState('');
     const [streetAddressError, setStreetAddressError] = useState('');
@@ -27,6 +27,10 @@ const CheckOut = ({ itemTotals, priceTotals }) => {
     const [shippingInfoFilled, setShippingInfoFilled] = useState(false);
     const [disabled, setDisabled] = useState(true);
     const [isRendered, setIsRendered] = useState(false);
+    const [checkOutInfo, setCheckOutInfo] = useState({})
+
+
+
 
 
 
@@ -56,7 +60,16 @@ const CheckOut = ({ itemTotals, priceTotals }) => {
         if (firstName.length > 0 && lastName.length > 0 && streetAddress.length > 0 && zipCode.length > 0 && city.length > 0 && state.length > 0) {
             setShippingInfoFilled(true)
             setIsRendered(true)
+
+            const info = {
+                name: `${firstName} ${lastName}`,
+                address: `${streetAddress} ${zipCode} ${city} ${state}`,
+                purchases: shoppingCart,
+            }
+            setCheckOutInfo(info)
             // setDisabled(false)
+
+
         }
 
         else {
@@ -164,7 +177,7 @@ const CheckOut = ({ itemTotals, priceTotals }) => {
                     <label className='text-[20px] mr-[560px] text-black'>Use as billing address</label>
                     {isRendered ? <></> : <button className="bg-red-500 hover:bg-red-600 px-7 py-2 text-lg text-white uppercase w-[250px] ml-[500px] mt-[20px]" onClick={() => { paymentFunctionHandler() }}>save & continue</button>}
                 </div>
-                <Subtotal itemTotals={itemTotals} priceTotals={priceTotals} disabled={disabled} />
+                <Subtotal checkOutInfo={checkOutInfo} setRecentlyProcessedOrder={setRecentlyProcessedOrder} itemTotals={itemTotals} priceTotals={priceTotals} disabled={disabled} />
             </div>
             {/* render PaymentInfo only if shippingInfoFilled is true */}
             {shippingInfoFilled && <div>

@@ -1,10 +1,52 @@
 import React from 'react'
+import { useAuth } from '../Hooks/Auth'
+
 import { useNavigate } from "react-router-dom";
 
-const Subtotal = ({ itemTotals, priceTotals, disabled }) => {
+const Subtotal = ({ itemTotals, priceTotals, disabled, setRecentlyProcessedOrder, shoppingCart, checkOutInfo }) => {
     const notDisabledClass = 'bg-red-500 hover:bg-red-600 px-7 py-2 text-lg text-white uppercase w-full'
     const disabledClass = 'bg-gray-600 hover:bg-gray-600 hover:cursor-not-allowed  px-7 py-2 text-lg text-white uppercase w-full'
     const navigate = useNavigate()
+    const auth = useAuth();
+
+    const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT
+
+
+    const savingPurchasedItems = async () => {
+        console.log(checkOutInfo)
+
+        const recentOrder = {
+            user: auth.userEmail,
+            // checkOutInfo holds first name, last name and address of current user.
+            ...checkOutInfo,
+            itemTotals,
+            priceTotals,
+        }
+        console.log(recentOrder)
+
+        const url = `${urlEndpoint}/users/checkout`;
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                recentOrder
+            }),
+        });
+        const responseJSON = await response.json();
+        console.log(responseJSON)
+
+        console.log(recentOrder)
+        setRecentlyProcessedOrder(checkOutInfo.purchases)
+        navigate('/processedorderpage')
+
+    }
+
+
+
+
+
 
 
     return (
@@ -34,7 +76,7 @@ const Subtotal = ({ itemTotals, priceTotals, disabled }) => {
 
                     {/* "bg-red-500 hover:bg-red-600 px-7 py-2 text-lg text-white uppercase w-full"  */}
                 </div>
-                <button className={`${disabled ? disabledClass : notDisabledClass}`} disabled={disabled} onClick={() => { navigate('/processedorderpage') }}>Place Order  {`$${priceTotals.toFixed(2)}`}</button>
+                <button className={`${disabled ? disabledClass : notDisabledClass}`} disabled={disabled} onClick={savingPurchasedItems}>Place Order  {`$${priceTotals.toFixed(2)}`}</button>
             </div>
         </div>
     )

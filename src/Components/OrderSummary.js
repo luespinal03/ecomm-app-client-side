@@ -5,13 +5,12 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const OrderSummary = ({ itemTotals, priceTotals }) => {
+const OrderSummary = ({ itemTotals, priceTotals, setRecentlyProcessedOrder }) => {
     const auth = useAuth()
     const navigate = useNavigate();
 
 
     const routeOptionHandler = () => {
-
         /*auth.userEmail !== null && */ auth.userEmail.length > 0 ? navigate('/checkout') : navigate('/checkoutoptions')
     }
 

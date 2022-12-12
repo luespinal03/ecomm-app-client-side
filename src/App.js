@@ -8,7 +8,7 @@ import ProductsPage from './Pages/ProductsPage';
 import ShoppingCart from './Components/ShoppingCart';
 import CheckOut from './Components/CheckOut';
 import About from './Components/About'
-import ProcessedOrderPage from './Components/ProcessedOrderPage';
+import ProcessedOrder from './Components/ProcessedOrder';
 import Support from './Components/Support'
 import { useAuth } from './Hooks/Auth';
 import ErrorPage from './Pages/ErrorPage'
@@ -30,6 +30,7 @@ function App() {
   const [itemTotals, setItemTotals] = useState(0)
   const [priceTotals, setPriceTotals] = useState(0)
   const [quantity, setQuantity] = useState(1);
+  const [recentlyProcessedOrder, setRecentlyProcessedOrder] = useState([])
   const auth = useAuth();
 
 
@@ -177,11 +178,11 @@ function App() {
         },
         {
           path: '/shoppingcart',
-          element: <ShoppingCart shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCartHandler} removeItemFromCartHandler={removeItemFromCartHandler} itemTotals={itemTotals} priceTotals={priceTotals} removeItemHandler={removeItemHandler} />
+          element: <ShoppingCart setRecentlyProcessedOrder={setRecentlyProcessedOrder} shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCartHandler} removeItemFromCartHandler={removeItemFromCartHandler} itemTotals={itemTotals} priceTotals={priceTotals} removeItemHandler={removeItemHandler} />
         },
         {
           path: '/checkout',
-          element: <CheckOut itemTotals={itemTotals} priceTotals={priceTotals} />
+          element: <CheckOut itemTotals={itemTotals} priceTotals={priceTotals} setRecentlyProcessedOrder={setRecentlyProcessedOrder} shoppingCart={shoppingCart} />
         },
         {
           path: '/about',
@@ -201,7 +202,7 @@ function App() {
         },
         {
           path: '/processedorderpage',
-          element: <ProcessedOrderPage />
+          element: <ProcessedOrder recentlyProcessedOrder={recentlyProcessedOrder} priceTotals={priceTotals} />
         },
       ]
     }

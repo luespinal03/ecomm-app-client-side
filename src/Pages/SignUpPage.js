@@ -26,7 +26,7 @@ const SignUpPage = () => {
 
 
     const registrationHandler = async () => {
-        const registerResult = await auth.register(email, password);
+        const registerResult = await auth.register(email, password, firstName, lastName);
         if (registerResult.success && firstName.length > 0 && lastName.length > 0 && email.length > 0 && password.length > 0 && phone.length > 0) navigate("/login");
         if (firstName.length < 1) setFirstNameError('First Name is required.');
         if (lastName.length < 1) setLastNameError('Last Name is required.');
