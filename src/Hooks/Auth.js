@@ -69,6 +69,9 @@ export const AuthProvider = ({ children }) => {
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
+
+
+
 export const useAuth = () => {
     return useContext(AuthContext);
 };
@@ -105,8 +108,12 @@ const loginUser = async (email, password) => {
         }),
     });
     const responseJSON = await response.json();
+    console.log(responseJSON)
     return responseJSON;
 };
+
+
+
 
 const setLSUserData = (token, email) => {
     localStorage.setItem(

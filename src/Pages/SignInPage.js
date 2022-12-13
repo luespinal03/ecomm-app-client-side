@@ -18,6 +18,7 @@ const SigninPage = () => {
 
     const loginHandler = async () => {
         const loginResult = await auth.login(email, password);
+
         if (loginResult.success && email.length > 0 && password.length > 0) navigate("/");
         if (email.length < 1) setEmailError('Please enter a valid Email address.');
         if (password.length < 1) setPasswordError('Please enter a valid Password.');

@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import GlobalLayout from './Layouts/GlobalLayout';
+import MyAccount from './Components/MyAccount'
 import HomePage from './Pages/HomePage';
 import SignInPage from './Pages/SignInPage';
 import CheckOutOptions from './Components/CheckOutOptions';
@@ -26,8 +27,8 @@ function App() {
   // itemsList is holding all products coming from the fetch out of the database
   const [itemsList, setItemsList] = useState([]);
   const [message, setMessage] = useState('');
-  const [email, setEmail] = useState('')
-  const [itemTotals, setItemTotals] = useState(0)
+  const [email, setEmail] = useState('');
+  const [itemTotals, setItemTotals] = useState(0);
   const [priceTotals, setPriceTotals] = useState(0)
   const [quantity, setQuantity] = useState(1);
   const [recentlyProcessedOrder, setRecentlyProcessedOrder] = useState([])
@@ -178,7 +179,7 @@ function App() {
         },
         {
           path: '/shoppingcart',
-          element: <ShoppingCart setRecentlyProcessedOrder={setRecentlyProcessedOrder} shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCartHandler} removeItemFromCartHandler={removeItemFromCartHandler} itemTotals={itemTotals} priceTotals={priceTotals} removeItemHandler={removeItemHandler} />
+          element: <ShoppingCart shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCartHandler} removeItemFromCartHandler={removeItemFromCartHandler} itemTotals={itemTotals} priceTotals={priceTotals} removeItemHandler={removeItemHandler} />
         },
         {
           path: '/checkout',
@@ -203,6 +204,10 @@ function App() {
         {
           path: '/processedorderpage',
           element: <ProcessedOrder recentlyProcessedOrder={recentlyProcessedOrder} priceTotals={priceTotals} quantity={quantity} />
+        },
+        {
+          path: '/myaccount',
+          element: <MyAccount />
         },
       ]
     }

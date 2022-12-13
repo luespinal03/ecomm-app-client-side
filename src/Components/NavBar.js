@@ -26,6 +26,10 @@ const Navbar = ({ email }) => {
                         <li><Link to="/about" smooth={true} offset={-200} duration={500}>About</Link></li>
                         <li><Link to="/support" smooth={true} offset={-50} duration={500}>Support</Link></li>
                         <li><Link to="/products" smooth={true} offset={-100} duration={500}>Products</Link></li>
+                        {auth.userEmail !== null && auth.userEmail.length > 0 ? (
+                            <li><Link to="/myaccount" smooth={true} offset={-100} duration={500}>My Account</Link></li>
+                        ) : (<></>)}
+
 
                     </ul>
                 </div>

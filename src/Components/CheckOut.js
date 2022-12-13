@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import Subtotal from './Subtotal'
-import { useNavigate } from "react-router-dom";
 import PaymentInfo from './PaymentInfo';
 
 
@@ -66,10 +65,9 @@ const CheckOut = ({ itemTotals, priceTotals, setRecentlyProcessedOrder, shopping
                 address: `${streetAddress} ${zipCode} ${city} ${state}`,
                 purchases: shoppingCart,
             }
-            setCheckOutInfo(info)
+            console.log(info)
+            setCheckOutInfo(info);
             // setDisabled(false)
-
-
         }
 
         else {

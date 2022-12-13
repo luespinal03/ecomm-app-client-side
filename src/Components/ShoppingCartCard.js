@@ -3,7 +3,7 @@ import OrderSummary from '../Components/OrderSummary'
 import './ShoppingCartCard.css'
 import ItemsInCartCard from './ItemsInCartCard';
 
-const ShoppingCartCard = ({ setRecentlyProcessedOrder, shoppingCart, itemToShoppingCart, removeItemFromCartHandler, itemTotals, priceTotals, removeItemHandler }) => {
+const ShoppingCartCard = ({ shoppingCart, itemToShoppingCart, removeItemFromCartHandler, itemTotals, priceTotals, removeItemHandler }) => {
 
     return (
 
@@ -33,7 +33,7 @@ const ShoppingCartCard = ({ setRecentlyProcessedOrder, shoppingCart, itemToShopp
                         Continue Shopping
                     </a>
                 </div>
-                <OrderSummary itemTotals={itemTotals} priceTotals={priceTotals} setRecentlyProcessedOrder={setRecentlyProcessedOrder} />
+                <OrderSummary itemTotals={itemTotals} priceTotals={priceTotals} />
             </div>
         </div>
 

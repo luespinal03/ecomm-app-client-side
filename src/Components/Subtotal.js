@@ -1,15 +1,16 @@
 import React from 'react'
 import { useAuth } from '../Hooks/Auth'
-
 import { useNavigate } from "react-router-dom";
 
-const Subtotal = ({ itemTotals, priceTotals, disabled, setRecentlyProcessedOrder, shoppingCart, checkOutInfo }) => {
+const Subtotal = ({ itemTotals, priceTotals, disabled, setRecentlyProcessedOrder, checkOutInfo }) => {
     const notDisabledClass = 'bg-red-500 hover:bg-red-600 px-7 py-2 text-lg text-white uppercase w-full'
     const disabledClass = 'bg-gray-600 hover:bg-gray-600 hover:cursor-not-allowed  px-7 py-2 text-lg text-white uppercase w-full'
     const navigate = useNavigate()
     const auth = useAuth();
 
     const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT
+
+
 
 
     const savingPurchasedItems = async () => {
@@ -42,9 +43,6 @@ const Subtotal = ({ itemTotals, priceTotals, disabled, setRecentlyProcessedOrder
         navigate('/processedorderpage')
 
     }
-
-
-
 
 
 
