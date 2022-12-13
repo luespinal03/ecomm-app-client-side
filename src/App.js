@@ -202,7 +202,7 @@ function App() {
         },
         {
           path: '/processedorderpage',
-          element: <ProcessedOrder recentlyProcessedOrder={recentlyProcessedOrder} priceTotals={priceTotals} />
+          element: <ProcessedOrder recentlyProcessedOrder={recentlyProcessedOrder} priceTotals={priceTotals} quantity={quantity} />
         },
       ]
     }
