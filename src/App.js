@@ -32,6 +32,7 @@ function App() {
   const [priceTotals, setPriceTotals] = useState(0)
   const [quantity, setQuantity] = useState(1);
   const [recentlyProcessedOrder, setRecentlyProcessedOrder] = useState([])
+  const [wishList, setWishList] = useState([]);
   const auth = useAuth();
 
 
@@ -124,7 +125,19 @@ function App() {
     }
     console.log(shoppingCart)
   }
-  // console.log(shoppingCart)
+
+
+  const itemIntoWishListHandler = (product) => {
+
+    const findingIndex = wishList.findIndex((productSelected) => {
+      return productSelected._id === product._id
+    })
+
+    if (findingIndex === -1) {
+      setWishList([...wishList, { ...product }])
+    }
+    console.log(wishList)
+  }
 
 
 
@@ -175,7 +188,7 @@ function App() {
         },
         {
           path: '/products',
-          element: <ProductsPage itemsList={itemsList} itemToShoppingCart={itemToShoppingCartHandler} />
+          element: <ProductsPage itemsList={itemsList} itemToShoppingCartHandler={itemToShoppingCartHandler} itemIntoWishListHandler={itemIntoWishListHandler} />
         },
         {
           path: '/shoppingcart',
@@ -207,7 +220,7 @@ function App() {
         },
         {
           path: '/myaccount',
-          element: <MyAccount />
+          element: <MyAccount wishList={wishList} />
         },
       ]
     }

@@ -93,9 +93,9 @@ const SignUpPage = () => {
                     </div>
                 </div>
             </div>
-            <div className='fixed bottom-0 w-100'>
+            {/* <div className='fixed bottom-0 w-100'>
                 <Footer />
-            </div>
+            </div> */}
 
         </>
 

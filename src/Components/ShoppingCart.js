@@ -13,7 +13,7 @@ const ShoppingCart = ({ shoppingCart, quantity, setQuantity, itemToShoppingCart,
             </div>
 
 
-            <div className='w-screen mt-[83.6rem]'>
+            <div className='w-screen mt-[35rem]'>
                 <Footer />
             </div>
 
@@ -25,7 +25,7 @@ const ShoppingCart = ({ shoppingCart, quantity, setQuantity, itemToShoppingCart,
                 <ShoppingCartCard shoppingCart={shoppingCart} quantity={quantity} setQuantity={setQuantity} itemToShoppingCart={itemToShoppingCart} removeItemFromCartHandler={removeItemFromCartHandler} itemTotals={itemTotals} priceTotals={priceTotals} removeItemHandler={removeItemHandler} />
             </div>
 
-            <div className='mt-[38.9rem] w-screen'>
+            <div className='mt-[20rem] w-screen'>
                 <Footer />
             </div>
 

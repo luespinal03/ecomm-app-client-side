@@ -4,6 +4,8 @@ import { useAuth } from "../Hooks/Auth";
 import { Link } from 'react-router-dom';
 import './NavBar.css'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
+import { FaUserAlt } from 'react-icons/fa'
+import { BiLogOut, BiLogIn } from 'react-icons/bi'
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 
 const Navbar = ({ email }) => {
@@ -22,24 +24,27 @@ const Navbar = ({ email }) => {
                 <div className='flex items-center'>
                     <a href="/" className='no-underline ml-2'><h1 className='text-3xl font-bold mr-4 sm:text-4xl mb-4'>GAMESHAK.</h1>
                     </a>
-                    <ul className='hidden md:flex'>
-                        <li><Link to="/about" smooth={true} offset={-200} duration={500}>About</Link></li>
-                        <li><Link to="/support" smooth={true} offset={-50} duration={500}>Support</Link></li>
-                        <li><Link to="/products" smooth={true} offset={-100} duration={500}>Products</Link></li>
-                        {auth.userEmail !== null && auth.userEmail.length > 0 ? (
-                            <li><Link to="/myaccount" smooth={true} offset={-100} duration={500}>My Account</Link></li>
-                        ) : (<></>)}
-
-
+                    <ul className='hidden md:flex mt-2'>
+                        <li><Link to="/about" className='text-[20px]' >About</Link></li>
+                        <li><Link to="/support" className='text-[20px]'>Support</Link></li>
+                        <li><Link to="/products" className='text-[20px]'>Products</Link></li>
                     </ul>
                 </div>
 
-                <div className='ml-auto mr-5'> { /* auth.userEmail !== null && */ auth.userEmail.length > 0 ? (<h4>Welcome: {email}</h4>) : (<div />)}
+                <div className='ml-[200px] mb-[45px]'>
+
+                    {auth.userEmail !== null && auth.userEmail.length > 0 ? (
+                        <Link to="/myaccount" className='p-0 '><FaUserAlt size={20} /></Link>
+                    ) : (<></>)}
+                </div>
+
+
+                <div className='ml-auto mr-5'> { /* auth.userEmail !== null && */ auth.userEmail.length > 0 ? (<h4 className='text-[20px]'>Welcome: {email}</h4>) : (<div />)}
 
                 </div>
 
                 <div className='hidden md:flex pr-4 mb-4'>
-                    <Link to='/shoppingcart' className='mr-10 mt-2'><AiOutlineShoppingCart size={33} />
+                    <Link to='/shoppingcart' className='mr-10 mt-3'><AiOutlineShoppingCart size={30} />
                     </Link>
 
                     <div >
@@ -50,11 +55,11 @@ const Navbar = ({ email }) => {
                                     navigate("/login");
                                 }}
                             >
-                                Sign Out
+                                <BiLogOut size={25} />
                             </button>
                         ) : (
                             <button className='mt-3 border-none bg-transparent text-black mr-4' onClick={() => { navigate('/login') }}>
-                                Sign In
+                                <BiLogIn size={25} />
                             </button>
                         )}
                     </div>
