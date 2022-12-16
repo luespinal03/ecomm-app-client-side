@@ -220,7 +220,7 @@ function App() {
         },
         {
           path: '/myaccount',
-          element: <MyAccount wishList={wishList} />
+          element: <MyAccount wishList={wishList} itemToShoppingCartHandler={itemToShoppingCartHandler} itemsList={itemsList} />
         },
       ]
     }

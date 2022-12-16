@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from './Footer'
 
 
 const ProcessedOrder = ({ recentlyProcessedOrder, priceTotals }) => {
@@ -42,7 +43,7 @@ const ProcessedOrder = ({ recentlyProcessedOrder, priceTotals }) => {
                             })}
 
                         </div>
-                        <div className='bg-blue-400'>
+                        <div className='bg-blue-400 w-2/4 ml-[25%] rounded-none'>
                             <h1 className="font-semibold text-3xl mt-40 pt-10 underline">Order Total: ${priceTotals}</h1>
                             <h3 className='pb-10'>Thank you for shopping with us !</h3>
                         </div>

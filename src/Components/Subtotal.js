@@ -14,7 +14,7 @@ const Subtotal = ({ itemTotals, priceTotals, disabled, setRecentlyProcessedOrder
 
 
     const savingPurchasedItems = async () => {
-        console.log(checkOutInfo)
+        // console.log(checkOutInfo)
 
         const recentOrder = {
             user: auth.userEmail,
@@ -23,7 +23,7 @@ const Subtotal = ({ itemTotals, priceTotals, disabled, setRecentlyProcessedOrder
             itemTotals,
             priceTotals,
         }
-        console.log(recentOrder)
+        // console.log(recentOrder)
 
         const url = `${urlEndpoint}/users/checkout`;
         const response = await fetch(url, {
